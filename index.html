@@ -3,11 +3,6055 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <script src="js/index.js"></script>
-  <title>Clasfon federal University OTUOKE chapter student support platform.html</title>
+  <title>FUO Law Past Questions</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f0f4f9;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    /* ========== TOP HEADER ========== */
+    .top-header {
+      background: #0a1f44;
+      color: white;
+      padding: 16px 20px;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo-circle {
+      width: 52px;
+      height: 52px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .header-text p {
+      font-size: 11px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    /* ========== HOME PAGE ========== */
+    .home-container {
+      max-width: 460px;
+      margin: 0 auto;
+      padding: 45px 20px 50px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0a1f44;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 18px;
+    }
+
+    .accent-line {
+      width: 48px;
+      height: 4px;
+      background: #1a56db;
+      margin: 0 auto 35px;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0a1f44;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* Level Buttons - Pill Style */
+    .levels {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .level-btn {
+      background: white;
+      border: none;
+      padding: 18px 24px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0a1f44;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+
+    .level-btn span {
+      font-size: 20px;
+      color: #1a56db;
+      font-weight: 400;
+    }
+
+    .level-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ========== OTHER PAGES ========== */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .semester-btn,
+    .course-btn {
+      display: block;
+      width: 100%;
+      background: white;
+      border: none;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      color: #0a1f44;
+      transition: 0.2s;
+    }
+
+    .semester-btn:hover,
+    .course-btn:hover {
+      background: #eef2f7;
+      transform: translateY(-2px);
+    }
+
+    .back-btn {
+      background: #0a1f44;
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .back-btn:hover {
+      background: #122a5a;
+    }
+
+    /* PAST QUESTION DESIGN */
+    .question-box {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      line-height: 1.7;
+    }
+
+    .question-box h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #0a1f44;
+    }
+
+    .question-box h3 {
+      margin-top: 20px;
+      margin-bottom: 12px;
+    }
+
+    .session {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .question {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .question p {
+      margin-bottom: 15px;
+    }
+
+    .question ul,
+    .question ol {
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+
+    .question li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .main-title {
+        font-size: 22px;
+      }
+
+      .header-text h1 {
+        font-size: 12px;
+      }
+
+      .header-text p {
+        font-size: 10px;
+      }
+
+      .logo-circle {
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-	<h1>Clasfon federal University OTUOKE chapter student support platform.html</h1>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <div class="header-content">
+    <img src="data:image/png;base64,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" class="logo" alt="CLSFN Logo">
+   
+      <div class="header-text">
+        <h1>CHRISTIAN LAW STUDENTS’ FELLOWSHIP OF NIGERIA</h1>
+        <p>FEDERAL UNIVERSITY OTUOKE CHAPTER</p>
+      </div>
+    </>
+  </header>
+
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page active">
+    <div class="home-container">
+
+      <h1 class="main-title">FUO LAW PAST QUESTIONS</h1>
+      <p class="subtitle">Access past examination questions quickly and easily.</p>
+      
+      <div class="accent-line"></div>
+
+      <h2 class="section-title">Select Your Level</h2>
+
+      <div class="levels">
+        <button class="level-btn" onclick="showPage('100level')">
+          100 LEVEL <span>›</span>
+        </button>
+
+        <button class="level-btn" onclick="showPage('200level')">
+          200 LEVEL <span>›</span>
+        </button>
+
+        <button class="level-btn" onclick="showPage('300level')">
+          300 LEVEL <span>›</span>
+        </button>
+
+        <button class="level-btn" onclick="showPage('400level')">
+          400 LEVEL <span>›</span>
+        </button>
+
+        <button class="level-btn" onclick="showPage('500level')">
+          500 LEVEL <span>›</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 100 LEVEL -->
+  <div id="100level" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('home')">← Back</button>
+
+      <h2 class="section-title">100 LEVEL</h2>
+
+      <button class="semester-btn" onclick="showPage('100first')">
+        First Semester
+      </button>
+
+      <button class="semester-btn" onclick="showPage('100second')">
+  Second Semester
+      </button>
+          </div>
+  </div>
+
+  <!-- 100 LEVEL FIRST SEMESTER -->
+  <div id="100first" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('100level')">← Back</button>
+
+      <h2 class="section-title">100 LEVEL — FIRST SEMESTER</h2>
+
+      <button class="course-btn" onclick="showPage('legalmethod')">
+        LEGAL METHOD
+      </button>
+
+            <button class="course-btn" onclick="showPage('professionalethics')">
+        PROFESSIONAL ETHICS
+      </button>
+
+      <button class="course-btn" onclick="showPage('englishlegalwriting')">
+        ENGLISH IN LEGAL WRITING
+      </button>
+
+      <button class="course-btn" onclick="showPage('logiccriticalthinking')">
+        LOGIC AND CRITICAL THINKING
+      </button>
+
+      <button class="course-btn" onclick="showPage('philosophy')">
+        PHILOSOPHY
+      </button>
+  </div>
+  </div>
+
+<!-- LEGAL METHOD -->
+<div id="legalmethod" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100first')">← Back</button>
+
+    <h2 class="section-title">LEGAL METHOD</h2>
+
+    <button class="course-btn" onclick="showPage('legalmethod2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('legalmethod2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+
+<!-- PROFESSIONAL ETHICS -->
+<div id="professionalethics" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100first')">← Back</button>
+
+    <h2 class="section-title">PROFESSIONAL ETHICS</h2>
+
+    <button class="course-btn" onclick="showPage('professionalethics2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('professionalethics2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+
+<!-- PROFESSIONAL ETHICS 2024/2025 -->
+<div id="professionalethics2024" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('professionalethics')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+      <h2>PROFESSIONAL ETHICS</h2>
+      <p class="session">2024/2025 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+      <h3>QUESTIONS COMING SOON.</h3>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROFESSIONAL ETHICS 2025/2026 -->
+<div id="professionalethics2025" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('professionalethics')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+      <h2>PROFESSIONAL ETHICS</h2>
+      <p class="session">2025/2026 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+      <h3>Answer any 4 questions out of the 6 questions provided.</h3>
+
+      <div class="question">
+        <h3>1.</h3>
+        <p>
+          Emeka Sule has just been called to the Nigerian Bar as a
+          Barrister and Solicitor of the Supreme Court of Nigeria.
+          He has been retained by Chief Ajanaku as his solicitor.
+          Chief Ajanaku has requested that Emeka Sule should appear
+          in Court on his behalf to inform the court that he is ill
+          in order to secure an adjournment while he is not ill.
+          Emeka Sule has been contemplating the instruction from his
+          client. He has approached you as a student of professional
+          ethics to explain the core duties of a legal practitioner.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>2.</h3>
+        <p>
+          <strong>(a)</strong> The principle of legal ethics and
+          professional responsibility serve as a moral compass for
+          legal practitioners. Discuss.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Streaming from your above discussion,
+          list and explain four principles of legal ethics.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>3.</h3>
+        <p>
+          Analyze the role of a lawyer as an advocate for a client
+          and the lawyer's duties as a moral agent and officer of
+          the court, with reference to philosophical context of
+          ethics.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>4.</h3>
+        <p>
+          Examine 3 regulatory institutions in the legal profession
+          in Nigeria.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>5.</h3>
+        <p>
+          <strong>(a)</strong> Briefly explain 5 values a legal
+          practitioner should uphold, giving relevant instances of
+          how they should be applied.
+        </p>
+
+        <p>
+          <strong>(b)</strong> List six (6) factors that influence
+          citizens attitudes towards values.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>6.</h3>
+        <p>
+          A lawyer, in the discharge of his or her professional
+          responsibilities, is expected to be morally upright;
+          however, a lawyer may be permitted to assume an amoral
+          role. Discuss, in detail, the lawyer's amoral role
+          vis-à-vis the lawyer's moral standing.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ENGLISH IN LEGAL WRITING -->
+<div id="englishlegalwriting" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100first')">← Back</button>
+
+    <h2 class="section-title">ENGLISH IN LEGAL WRITING</h2>
+
+    <button class="course-btn" onclick="showPage('englishlegalwriting2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('englishlegalwriting2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+
+<!-- ENGLISH IN LEGAL WRITING 2024/2025 -->
+<div id="englishlegalwriting2024" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('englishlegalwriting')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>ENGLISH FOR LEGAL WRITING</h2>
+
+      <p class="session">
+        2024/2025 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        INSTRUCTION: ANSWER ANY FOUR (4) QUESTIONS
+      </h3>
+
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> Discuss the duties of a good legal draftsman.
+        </p>
+
+        <p>
+          <strong>(b)</strong> With the aid of at least one judicial
+          authority discuss the duty of care a draftsman owes his
+          client and state whether he can be held liable in negligence
+          on the basis of the duty.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Persuasive writing is the act of swaying the minds of the
+          audience or reader to see things from your point of view
+          or perspective. In Aristotle Rhetoric, there are 3 tools
+          for achieving this feat;
+        </p>
+
+        <p>
+          <strong>•</strong> Mention and explain these tools.
+        </p>
+
+        <p>
+          <strong>•</strong> How does a legal draftsman balance these
+          tools in legal writing not to appear manipulative or overtly
+          emotional?
+        </p>
+      </div>
+
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Briefly discuss the following:
+        </p>
+
+        <ul>
+          <li>Single Rule Argument</li>
+          <li>Rule Based Argument</li>
+          <li>Umbrella Paragraph</li>
+        </ul>
+      </div>
+
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          David entered into a lease agreement with Joseph for the
+          supply of 10 floating pipes for his dredger for the duration
+          of 2 weeks. By their agreement the delivery of the pipes
+          would be at most 24 hours after the receipt of payment for
+          the lease. However, it is now 2 weeks that payment was made,
+          Joseph is yet to deliver the floating pipes to David's water
+          front.
+        </p>
+
+        <p>
+          David has approached you as a Lawyer to write a letter of
+          demand to Joseph requesting him to immediately deliver the
+          floating pipes or refund the money paid or face the
+          consequences of his wrongful action.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Explain the following:
+        </p>
+
+        <ul>
+          <li>Why Lawyers need to write in plain English Language.</li>
+          <li>The supervisory role of the courts over public and private documents.</li>
+          <li>What is legal drafting.</li>
+        </ul>
+      </div>
+
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          Johnson, a mobite phone dealer adjacent the Administrative
+          block of Federal University Otuoke returned from Swali market
+          at about 8 pm only to find out that his shop had been burgled.
+          The burglars were still around and took to their heels when
+          they sighted Johnson but Harmless, one of the burglars, was
+          not lucky like others as Johnson quickly shut the protector
+          before he could come out of the shop.
+        </p>
+
+        <p>
+          Johnson made unsuccessful efforts to contact the police that
+          night but eventually got them to come around 11 am to pick
+          up Harmless to the police station in handcuffs. Harmless
+          contacted his uncle who is a senior police officer while at
+          the police station and soon he was a free man.
+        </p>
+
+        <p>
+          Harmless has decided to institute an action for false
+          imprisonment against Johnson.
+        </p>
+
+        <p>
+          <strong>(i)</strong> Examine the relief that could be
+          available to Harmless if he successfully proves the elements
+          of false imprisonment.
+        </p>
+
+        <p>
+          <strong>(ii)</strong> Discuss the elements of false imprisonment
+          that Harmless would need to prove to succeed in his claim.
+        </p>
+
+        <p>
+          <strong>(iii)</strong> What would Johnson do to prevent
+          Harmless from getting the relief sought even if he
+          successfully proves the elements of false imprisonment?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ENGLISH IN LEGAL WRITING 2025/2026 -->
+<div id="englishlegalwriting2025" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('englishlegalwriting')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+      <h2>ENGLISH IN LEGAL WRITING</h2>
+      <p class="session">2025/2026 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+      <h3>QUESTIONS COMING SOON.</h3>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGIC AND CRITICAL THINKING -->
+<div id="logiccriticalthinking" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100first')">← Back</button>
+
+    <h2 class="section-title">LOGIC AND CRITICAL THINKING</h2>
+
+    <button class="course-btn" onclick="showPage('logiccriticalthinking2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('logiccriticalthinking2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+
+<!-- LOGIC AND CRITICAL THINKING 2024/2025 -->
+<div id="logiccriticalthinking2024" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('logiccriticalthinking')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+      <h2>LOGIC AND CRITICAL THINKING</h2>
+      <p class="session">2024/2025 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+      <h3>QUESTIONS COMING SOON.</h3>
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGIC AND CRITICAL THINKING 2025/2026 -->
+<div id="logiccriticalthinking2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('logiccriticalthinking')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>LOGIC AND CRITICAL THINKING 1</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER NUMBER ONE AND ANY OTHER TWO QUESTIONS
+      </h3>
+
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> Comprehensively, what is logic?
+        </p>
+
+        <p>
+          <strong>•</strong> Explain two types of logic.
+        </p>
+
+        <p>
+          <strong>•</strong> Debate why a lawyer who is proficient in
+          logic is likely to outperform his challenger.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Write short notes on:
+        </p>
+
+        <ul>
+          <li>Induction</li>
+          <li>Deduction</li>
+        </ul>
+
+        <p>
+          <strong>•</strong> Give 5 examples of an inductive argument.
+        </p>
+
+        <p>
+          <strong>•</strong> Give 5 examples of deductive argument.
+        </p>
+
+        <p>
+          <strong>•</strong> Compare and contrast inductive argument
+          with deductive argument.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          <strong>(a)</strong> Every proposition is a statement but
+          not every statement is a proposition. Discuss.
+        </p>
+
+        <p>
+          <strong>•</strong> Outline and explain four types of
+          propositions.
+        </p>
+
+        <p>
+          <strong>•</strong> Give two examples of each type of
+          proposition.
+        </p>
+
+        <p>
+          <strong>•</strong> Compare and contrast a premise with
+          a conclusion.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          <strong>(a)</strong> What is an argument?
+        </p>
+
+        <p>
+          <strong>•</strong> An argument is different from a quarrel.
+          Explain.
+        </p>
+
+        <p>
+          <strong>•</strong> What is an inference?
+        </p>
+
+        <p>
+          <strong>•</strong> What is a term?
+        </p>
+
+        <p>
+          <strong>•</strong> What is a premise?
+        </p>
+
+        <p>
+          <strong>•</strong> What is a conclusion?
+        </p>
+      </div>
+
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          <strong>(a)</strong> Explain fallacy.
+        </p>
+
+        <p>
+          <strong>•</strong> List and explain five fallacies that
+          you know.
+        </p>
+
+        <p>
+          <strong>•</strong> Give two examples of each of the five
+          fallacies that you have explained.
+        </p>
+
+        <p>
+          <strong>•</strong> Discuss the type of argument that gives
+          new information about the world.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY -->
+<div id="philosophy" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100first')">← Back</button>
+
+    <h2 class="section-title">PHILOSOPHY</h2>
+
+    <button class="course-btn" onclick="showPage('philosophy2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('philosophy2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY 2024/2025 -->
+<div id="philosophy2024" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('philosophy')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PHILOSOPHY</h2>
+
+      <p class="session">
+        2024/2025 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        Answer four questions out of six
+      </h3>
+
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Human nature constitutes the ontological basis of society.
+          Provide the (i) biological, (ii) psychological and
+          (iii) theological or teleological explanations of the above
+          statement. (23 marks).
+        </p>
+      </div>
+
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          What is the origin of the State? Briefly explain
+          (i) Plato, (ii) Aristotle and (iii) the Social Contract
+          theorists' accounts of the origin of the State. (23 marks).
+        </p>
+      </div>
+
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          What is democracy? How does the principle of "majority rule"
+          guide the process of decision making in a democracy? (23 marks).
+        </p>
+      </div>
+
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          (i) Give account of the origin and purpose of politics.
+        </p>
+
+        <p>
+          (ii) List a minimum of three (3) each for the following:
+        </p>
+
+        <ul>
+          <li>
+            (a) Functions of politics
+          </li>
+          <li>
+            (b) Scope of politics
+          </li>
+        </ul>
+
+        <p>(23 marks).</p>
+      </div>
+
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          (i) Explain the term 'political obligation.'
+        </p>
+
+        <p>
+          (ii) What are the grounds for the justification of
+          political obligation? (23 marks).
+        </p>
+      </div>
+
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          (i) Explain the notion of 'rights' in political philosophy.
+        </p>
+
+        <p>
+          (ii) Elucidate the features of human rights. (23 marks).
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- PHILOSOPHY 2025/2026 -->
+<div id="philosophy2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('philosophy')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>INTRODUCTION TO SOCIAL & POLITICAL PHILOSOPHY</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER NUMBER ONE AND ANY OTHER TWO QUESTIONS
+      </h3>
+
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> In detail, define social and political
+          philosophy.
+        </p>
+
+        <p>
+          <strong>•</strong> Write short notes on Plato's social and
+          political thoughts.
+        </p>
+
+        <p>
+          <strong>•</strong> Write short notes on Aristotle's social
+          and political thoughts.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>(a)</strong> Define social contract.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Briefly explain social contract theories
+          of the following:
+        </p>
+
+        <ul>
+          <li>Thomas Hobbes</li>
+          <li>John Locke</li>
+          <li>Jean Jacque Rousseau</li>
+        </ul>
+      </div>
+
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          <strong>(a)</strong> According to John Rawls, what is justice?
+        </p>
+
+        <p>
+          <strong>(b)</strong> List the names of justice in his
+          hypothetical state of nature and in the state propounded
+          by him.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Discuss the supremacy of the constitution in Immanuel Kant.
+        </p>
+      </div>
+
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Write short notes on:
+        </p>
+
+        <p>
+          <strong>(a)</strong> Liberalism
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- LEGAL METHOD 2024/2025 QUESTIONS -->
+  <div id="legalmethod2024" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('legalmethod')">← Back</button>
+
+      <div class="question-box">
+        <h2>LEGAL METHOD</h2>
+        <p class="session">2024/2025 ACADEMIC SESSION (100 LEVEL)</p>
+        <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+        <h3>ANSWER ANY FOUR OUT OF THE SIX QUESTIONS PROVIDED:</h3>
+
+        <!-- QUESTION 1 -->
+        <div class="question">
+          <h3>1.</h3>
+          <p>
+            On April 24, 2025, Police Sergeant Bonnets was assigned
+            to maintain order and security at the High Court Premises
+            in Yenagoa. At around 1:00 pm, he approaches a lady
+            dressed in casual attire, assuming she was a visitor,
+            and demanded that she submit to a search, as per court
+            protocol.
+          </p>
+          <p>
+            Despite her plea for civility, the sergeant became
+            aggressive, shouting at her and pushing her toward the
+            security screener. The lady calmly asserted that his
+            actions constituted harassment and a violation of her
+            rights under the Nigerian Constitution.
+          </p>
+          <p>
+            The situation escalated until the sergeant discovered
+            that the lady was in fact a judge of the Nembe High Court,
+            presiding over Court 9 within the complex. Upon realizing
+            his grave mistake, the sergeant became apologetic and
+            began begging for forgiveness.
+          </p>
+          <p>
+            <strong>
+              Critique the police sergeant's actions in light of the
+              incident involving the judge.
+            </strong>
+          </p>
+          <p>
+            <strong>
+              Describe the symbiotic relationship between the police
+              and the court, highlighting their interdependence.
+            </strong>
+          </p>
+        </div>
+
+        <!-- QUESTION 2 -->
+        <div class="question">
+          <h3>2.</h3>
+          <p>Write on any three (3) of the following:</p>
+          <ul>
+            <li>Positivist theory of law</li>
+            <li>Functional theory of law</li>
+            <li>Law and justice</li>
+            <li>Law and freedom</li>
+            <li>Law and sovereignty</li>
+          </ul>
+        </div>
+
+        <!-- QUESTION 3 -->
+        <div class="question">
+          <h3>3.</h3>
+          <p>
+            The National Assembly, in exercise of its legislative
+            power of making laws for the peace, order and good
+            government of the federation with respect to any matter
+            included in the Exclusive Legislative List as provided
+            under Section 4 of the 1990 Constitution (as amended),
+            enacted the Library Trust Fund, among other things,
+            provided for increased funding for the Library Trust Fund.
+          </p>
+          <p>
+            The Bill was thereafter transmitted to the President
+            for his assent. The President, however, in a letter to
+            the National Assembly communicated his intention not to
+            assent to the Bill, citing legal inconsistencies with
+            existing laws and financial concerns as the Bill seeks
+            to tax federal agencies.
+          </p>
+          <p>
+            The Special Adviser to the President on National Assembly
+            Matters communicated to the President of the plans of
+            the National Assembly to veto the Bill. The President,
+            in a bid to stop the Supreme Court from compelling the
+            National Assembly to give credence to his concerns,
+            rather than vetoing the Bill, approached the Supreme Court.
+          </p>
+          <p>
+            The National Assembly, in opposition to the application,
+            is urging the Supreme Court to dismiss the application
+            in line with its previous decisions that the court lacks
+            jurisdiction to stop the National Assembly from performing
+            its constitutional legislative functions.
+          </p>
+          <p>
+            <strong>(i)</strong>
+            Considering the facts of the case, does the Supreme Court
+            have jurisdiction to hear and determine the matter?
+          </p>
+          <p>
+            <strong>(ii)</strong>
+            Assuming the answer to question (i) is in the affirmative,
+            will the Supreme Court be bound by its previous decisions?
+          </p>
+          <p>
+            <strong>(iii)</strong>
+            What would be the effect of the Bill if the National
+            Assembly vetoes it?
+          </p>
+        </div>
+
+        <!-- QUESTION 4 -->
+        <div class="question">
+          <h3>4.</h3>
+          <p><strong>(a)</strong> Enumerate the methods of social control through law.</p>
+          <p><strong>(b)</strong> What is legal reasoning?</p>
+          <p>
+            <strong>(c)</strong>
+            Explain the types of reasoning in law and its purpose
+            in Nigerian legal system.
+          </p>
+        </div>
+
+        <!-- QUESTION 5 -->
+        <div class="question">
+          <h3>5.</h3>
+          <p>
+            <strong>(a)</strong>
+            What circumstances led to the development of the
+            Court of Equity?
+          </p>
+          <p><strong>(b)</strong> Write on the following:</p>
+          <ol type="i">
+            <li>Written and unwritten constitution</li>
+            <li>Civil law and common law</li>
+            <li>Public and private law</li>
+            <li>Substantive and procedural law</li>
+          </ol>
+        </div>
+
+        <!-- QUESTION 6 -->
+        <div class="question">
+          <h3>6.</h3>
+          <p>
+            Excellent Foods, an online food vendor based in Federal
+            University Otuoke, entered into a sales agreement with
+            Intercontinental Food Ltd, one of the major food vendors
+            based in Port-Harcourt for the supply of variety of cooked
+            foods to its numerous customers.
+          </p>
+          <p>
+            Excellent Foods does not prepare foods but relies on foods
+            from other vendors to service its customers.
+            Intercontinental Foods Ltd was to deliver Excellent Food
+            orders through courier companies but "will not be liable
+            for damages occasioned as a result of late delivery of
+            the orders to Excellent Foods."
+          </p>
+          <p>
+            The transactions went on well for several months, but on
+            January 15, 2025, Richboy, a dispatch rider who was to
+            deliver the orders placed by Excellent Foods was stopped
+            by the police at a checkpoint and was delayed for several
+            hours.
+          </p>
+          <p>
+            Most Excellent Food customers cancelled their orders
+            after several hours of waiting. Richboy later arrived at
+            about 6 p.m. and Excellent Foods discovered that some of
+            the foods had gotten soured. Intercontinental Foods Ltd
+            insists it will not be liable for the damages.
+          </p>
+          <p>
+            <strong>(i)</strong>
+            Discuss the legal issues arising from the ambiguity in
+            the contract and how the court will deal with the issue
+            of whether Intercontinental Foods Ltd will be liable.
+          </p>
+          <p>
+            <strong>(ii)</strong>
+            What other principles and statutory construction are
+            applicable to the interpretation of the provisions of
+            the agreement?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- LEGAL METHOD 2025/2026 QUESTIONS -->
+<div id="legalmethod2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('legalmethod')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>LEGAL METHOD 1</h2>
+
+      <p class="session">2025/2026 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">FIRST SEMESTER QUESTIONS</p>
+
+      <h3>Answer any 4 questions out of the 6 questions provided.</h3>
+
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          The Historical School of Jurisprudence emphasizes law as a
+          product of a nation's history, culture, and people's spirit
+          (volksgeist). Critics argue this approach can lead to
+          conservatism and resistance to social change, as it implies
+          laws are inherently tied to tradition.
+        </p>
+
+        <p>
+          In a multicultural society like Nigeria with diverse ethnic
+          groups and evolving social norms, discuss the implications of
+          adopting the Historical School's approach to law-making
+          and reform. Should Nigeria prioritize preserving its
+          traditional laws and customs, or adapt to changing societal
+          needs?
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Discuss the tension between 'law and order' and 'individual
+          freedom' as competing objectives of law in society. In the
+          context of Nigeria's rising crime rates and demands for
+          stricter security measures, evaluate how lawmakers should
+          balance these objectives.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          The National Assembly held a joint session on December 5,
+          2025, as convened by the Senate President in his capacity
+          as the leader of the National Assembly. During the session,
+          the Senate Leader introduced an executive bill for the repeal
+          of the National Pledge and the establishment of a new
+          National Pledge.
+        </p>
+
+        <p>
+          The joint session extensively deliberated on the bill and
+          later adjourned to December 6, 2025. The bill was passed
+          into law on December 6, 2025, as the New National Pledge Act
+          2025. The Clerk of the National Assembly transmitted the bill
+          for the President's assent on December 7, 2025.
+        </p>
+
+        <p>
+          The President, on the advice of the Attorney General of the
+          Federation, sent a letter to the National Assembly on January
+          15, 2026 communicating his decision to veto the bill due to
+          procedural errors.
+        </p>
+
+        <p>
+          The Senate President is considering convening a joint session
+          in a bid to override the President's veto. The Attorney
+          General of the Federation is determined to sue the National
+          Assembly should it proceed with the proposed overriding of
+          the President's veto.
+        </p>
+
+        <p>
+          <strong>
+            Identify the procedural irregularities in the process,
+            and advise the National Assembly and the Attorney General
+            of the Federation accordingly.
+          </strong>
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          The President of the Federal Republic of Nigeria, acting
+          pursuant to Section 305 of the 1999 Constitution (as amended),
+          signified an intention to issue a Proclamation of a State
+          of Emergency in Zamora State, following prolonged civil unrest
+          and a breakdown of public order.
+        </p>
+
+        <p>
+          The Proclamation intends to suspend the Governor and the
+          members of the State House of Assembly and appoint a Sole
+          Administrator to oversee the affairs of the State.
+        </p>
+
+        <p>
+          The Governor and the State House of Assembly have approached
+          the Supreme Court seeking injunctive reliefs against the
+          President and the National Assembly.
+        </p>
+
+        <p>
+          The President and the National Assembly, through their
+          respective legal representatives, have both asked the
+          Supreme Court to dismiss the matter for want of jurisdiction,
+          in line with its previous decisions.
+        </p>
+
+        <p>
+          <strong>
+            (a) Discuss the legal issues with respect to the jurisdiction
+            of the Supreme Court to hear and determine the matter,
+            considering the parties involved.
+          </strong>
+        </p>
+
+        <p>
+          <strong>
+            (b) What will be the effect of the previous decision of the
+            Supreme Court on the matter, as relied on by the President
+            and the National Assembly?
+          </strong>
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          In recent years, disputes over land ownership, inheritance,
+          and family relations in Nigeria have increasingly brought
+          into conflict customary law practices and received English
+          common law principles, particularly where customary norms
+          appear to discriminate on the basis of gender or conflict
+          with constitutional guarantees of equality.
+        </p>
+
+        <p>
+          Such disputes have resulted in both civil litigation and
+          criminal proceedings, and have raised questions about
+          applicable procedures and the relevance of international
+          human rights standards.
+        </p>
+
+        <p>
+          With reference to this scenario, answer the following
+          questions:
+        </p>
+
+        <ul>
+          <li>
+            Explain the rationale for classifying laws, and examine
+            the significance of such classifications to legal reasoning
+            and judicial decision-making in resolving conflicts between
+            customary law and common law in Nigeria.
+          </li>
+
+          <li>
+            Distinguish between public and private law, and between
+            substantive and procedural law.
+          </li>
+
+          <li>
+            Discuss the relationship between common law and customary
+            law in Nigeria, including the role of equity in moderating
+            the application of rigid customary rules.
+          </li>
+        </ul>
+      </div>
+
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          With specific reference to relevant provisions of the
+          Constitution of the Federal Republic of Nigeria 1999
+          (as amended), critically examine the concepts of
+          constitutional supremacy and the doctrine of separation
+          of powers.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- PROFESSIONAL ETHICS -->
+<div id="professionalethics" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('100first')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">PROFESSIONAL ETHICS</h2>
+
+    <button class="course-btn">
+      2024/2025 Academic Session — SOON
+    </button>
+
+    <button class="course-btn" onclick="showPage('professionalethics2025')">
+      2025/2026 Academic Session
+    </button>
+
+  </div>
+</div>
+
+
+<!-- PROFESSIONAL ETHICS 2025/2026 QUESTIONS -->
+<div id="professionalethics2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('professionalethics')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PROFESSIONAL ETHICS</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        Answer any 4 questions out of the 6 questions provided.
+      </h3>
+
+      <div class="question">
+        <h3>1.</h3>
+        <p>
+          Emeka Sule has just been called to the Nigerian Bar as a
+          Barrister and Solicitor of the Supreme Court of Nigeria.
+          He has been retained by Chief Ajanaku as his solicitor.
+          Chief Ajanaku has requested that Emeka Sule should appear
+          in Court on his behalf to inform the court that he is ill
+          in order to secure an adjournment while he is not ill.
+          Emeka Sule has been contemplating the instruction from his
+          client. He has approached you as a student of professional
+          ethics to explain the core duties of a legal practitioner.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>2.</h3>
+        <p>
+          <strong>(a)</strong> The principle of legal ethics and
+          professional responsibility serve as a moral compass for
+          legal practitioners. Discuss.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Streaming from your above discussion,
+          list and explain four principles of legal ethics.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>3.</h3>
+        <p>
+          Analyze the role of a lawyer as an advocate for a client
+          and the lawyer's duties as a moral agent and officer of
+          the court, with reference to philosophical context of ethics.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>4.</h3>
+        <p>
+          Examine 3 regulatory institutions in the legal profession
+          in Nigeria.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          <strong>(a)</strong> Briefly explain 5 values a legal
+          practitioner should uphold, giving relevant instances of
+          how they should be applied.
+        </p>
+
+        <p>
+          <strong>(b)</strong> List six (6) factors that influence
+          citizens attitudes towards values.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>6.</h3>
+        <p>
+          A lawyer, in the discharge of his or her professional
+          responsibilities, is expected to be morally upright;
+          however, a lawyer may be permitted to assume an amoral
+          role. Discuss, in detail, the lawyer's amoral role
+          vis-à-vis the lawyer's moral standing.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- 100 LEVEL SECOND SEMESTER -->
+<div id="100second" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('100level')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">100 LEVEL — SECOND SEMESTER</h2>
+
+    <button class="course-btn" onclick="showPage('legalmethod2')">
+      LEGAL METHOD II
+    </button>
+
+    <button class="course-btn" onclick="showPage('professionalethics2')">
+      PROFESSIONAL ETHICS II
+    </button>
+
+    <button class="course-btn" onclick="showPage('humanrights')">
+      HUMAN RIGHTS LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('logiccriticalthinking2')">
+      LOGIC AND CRITICAL THINKING II
+    </button>
+
+    <button class="course-btn" onclick="showPage('psychology')">
+      PSYCHOLOGY
+    </button>
+
+  </div>
+</div>
+  <!-- LEGAL METHOD II -->
+<div id="legalmethod2" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100second')">← Back</button>
+
+    <h2 class="section-title">LEGAL METHOD II</h2>
+
+    <button class="course-btn" onclick="showPage('legalmethod22024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('legalmethod22025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+<!-- LEGAL METHOD II 2024/2025 -->
+<div id="legalmethod22024" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('legalmethod2')">← Back</button>
+
+    <div class="question-box">
+      <h2>LEGAL METHOD II</h2>
+      <p class="session">2024/2025 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">SECOND SEMESTER QUESTIONS</p>
+      <h3>QUESTIONS COMING SOON.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- LEGAL METHOD II 2025/2026 -->
+<div id="legalmethod22025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('legalmethod2')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>LEGAL METHOD II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER FOUR (4) QUESTIONS ONLY.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Mr. Tamuno Briggs, a businessman resident in Port Harcourt,
+          Rivers State, entered into an agreement with Mr. Ebiowei Diri,
+          a building contractor, on 10th February 2026 for the supply and
+          installation of roofing materials in a residential building
+          situated at Yenagoa, Bayelsa State. The agreed contract sum was
+          N8,500,000.00, which Mr. Briggs paid in full upon execution of
+          the agreement.
+        </p>
+
+        <p>
+          Mr. Diri completed only a small portion of the work and thereafter
+          abandoned the project. Despite several telephone calls, text
+          messages, and personal visits by Mr. Briggs demanding either
+          completion of the work or refund of the unutilized balance of the
+          contract sum, Mr. Diri has refused to respond.
+        </p>
+
+        <p>
+          An independent quantity surveyor engaged by Mr. Briggs estimated
+          the value of the work done at only N2,000,000.00. Mr. Briggs has
+          now consulted your law firm, Messrs Lex &amp; Partners, seeking
+          legal assistance to recover the outstanding sum of N6,500,000.00
+          and any other relief available to him.
+        </p>
+
+        <p>
+          As a Legal Practitioner in Messrs Lex &amp; Partners, write a
+          formal demand letter on behalf of Mr. Tamuno Briggs to Mr. Ebiowei
+          Diri demanding the refund of the outstanding sum within fourteen
+          (14) days, failing which legal proceedings shall be commenced
+          against him without further notice.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          A newly admitted law student at Federal University Otuoke observed
+          that many students prefer obtaining information from online sources
+          rather than visiting the physical library.
+        </p>
+
+        <p>
+          During a library orientation programme, the University Librarian
+          emphasized that an understanding of library classification systems
+          and effective library use skills remains indispensable for serious
+          academic research. According to the Librarian, mastery of library
+          resources enables users to locate, evaluate, and utilize information
+          efficiently, thereby enhancing the quality of research outcomes.
+        </p>
+
+        <p>
+          Despite the growing popularity of digital and online information
+          platforms, the Librarian maintained that physical libraries
+          continue to play a vital role in legal education and scholarship.
+        </p>
+
+        <p>
+          The student is, however, of the opinion that online information
+          platforms have rendered physical libraries largely obsolete.
+          As a Library and Information Science adviser, critically evaluate
+          the student's position by comparing and contrasting the importance
+          of physical libraries and online information platforms in
+          contemporary legal research.
+        </p>
+
+        <p>
+          In your answer, state which of the two you consider more beneficial
+          to a law student and justify your position with relevant reasons.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          A reported case is a primary source of law and an indispensable
+          research tool for legal practitioners, judges, academics, and law
+          students.
+        </p>
+
+        <p>
+          To effectively utilize a reported case, a legal researcher must
+          understand its various component parts and their respective
+          functions.
+        </p>
+
+        <p>
+          Briefly discuss the component parts of a reported case, explaining
+          what each part contains and its relevance to legal research and
+          legal practice.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Judicial precedent is one of the major sources of law in Nigeria
+          and the doctrine of stare decisis promotes certainty, consistency,
+          and predictability in the administration of justice.
+        </p>
+
+        <p>
+          Thus, discuss the doctrine of judicial precedent in Nigeria by
+          addressing the following:
+        </p>
+
+        <ul>
+          <li>
+            Explain judicial precedent as a source of law in Nigeria.
+          </li>
+
+          <li>
+            Explain the conditions necessary for the effective operation
+            of the doctrine of stare decisis.
+          </li>
+
+          <li>
+            Discuss the operation of the doctrine of stare decisis at the
+            following courts:
+            <ul>
+              <li>High Court</li>
+              <li>Court of Appeal</li>
+              <li>Supreme Court</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Mr. Fings Roland, a prominent property developer, instructed
+          Surv. Fyne Tara, a Quantity Surveyor and his brother-in-law,
+          to sell approximately one thousand (1,000) plots of land
+          belonging to him at Ekeki-Epie, Yenagoa, Bayelsa State.
+        </p>
+
+        <p>
+          No agreement was reached regarding commission, remuneration,
+          or professional fees for the assignment.
+        </p>
+
+        <p>
+          Surv. Tara subsequently sold the property for N800,000,000.00
+          but remitted only N500,000,000.00 to Mr. Roland, retaining
+          N300,000,000.00 on the ground that it represented his professional
+          charges and reward for services rendered.
+        </p>
+
+        <p>
+          Mr. Roland has consulted you for legal advice.
+        </p>
+
+        <p>
+          Prepare a well-reasoned Legal Opinion advising Mr. Roland on the
+          legal relationship between the parties, whether Surv. Tara is
+          entitled to retain the sum of N300,000,000.00 in the absence of
+          an express agreement, and the legal remedies available to
+          Mr. Roland.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          A Year One law student, Eluan, is asked to write a legal memorandum
+          on a contract dispute.
+        </p>
+
+        <p>
+          In her draft, she writes:
+        </p>
+
+        <p>
+          "The defendant was kinda wrong because the agreement was sort of
+          unclear, and at this point in time it seems he did not really do
+          what he said he would do. Therefore, the claimant should probably
+          win."
+        </p>
+
+        <p>
+          Eluan also submits the work without headings, without stating the
+          legal issue, and without explaining the rule of law or applying
+          any legal principle to the facts.
+        </p>
+
+        <p>
+          Advise Eluan on the weaknesses in her legal writing and explain
+          how she can improve her work by focusing on any two of the
+          following:
+        </p>
+
+        <ul>
+          <li>Clarity and precision</li>
+          <li>IRAC/CRAC structure</li>
+          <li>
+            Avoiding wordiness, ambiguity, and poor proofreading
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROFESSIONAL ETHICS II -->
+<div id="professionalethics2" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100second')">← Back</button>
+
+    <h2 class="section-title">PROFESSIONAL ETHICS II</h2>
+
+    <button class="course-btn" onclick="showPage('professionalethics22024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('professionalethics22025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+<!-- PROFESSIONAL ETHICS II 2024/2025 -->
+<div id="professionalethics22024" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('professionalethics2')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PROFESSIONAL ETHICS II</h2>
+
+      <p class="session">
+        2024/2025 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        Answer Question One (1 - Compulsory) and any other Three (3) Questions.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          The hallmark of human conduct in a given society is ethics.
+          Hence the Legal Profession has its ethics which places enormous
+          responsibility on Legal Practitioners in Nigeria.
+        </p>
+
+        <ul>
+          <li>
+            Cite the first Rule correctly that summarizes lawyers' conduct.
+            <strong>5 marks</strong>
+          </li>
+
+          <li>
+            Quote exactly the provision of this first rule referred to.
+            <strong>9 marks</strong>
+          </li>
+
+          <li>
+            Address the Court as to whether Legal Practitioners in Nigeria
+            have discharged this enormous ethical responsibility that
+            designates a Noble Profession with examples.
+            <strong>5 marks</strong>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Dr. Christian Haruna is a legal practitioner of over 15 years
+          post-call and currently teaches law in the Faculty of Law,
+          Federal University Otuoke in Bayelsa State. He was recently
+          briefed by Mallam Mangani to prosecute a succession claim before
+          the Customary Court in the Federal Capital Territory, Abuja.
+        </p>
+
+        <p>
+          Dr. Haruna and Mallam Mangani agreed on the sum of N2,000,000
+          only as professional fees to be paid. On his first appearance
+          before the Customary Court, the Chairman of the Court refused
+          to record his appearance on the basis that he is a very senior
+          lawyer and law lecturer.
+        </p>
+
+        <p>
+          When Dr. Haruna stepped out of the court, he demanded his full
+          fees from Mallam Mangani who also refused to pay him any fees.
+        </p>
+
+        <ul>
+          <li>
+            With the aid of statutory and case law authorities, advise the
+            Chairman of the Customary Court on the rights of a legal
+            practitioner and state the circumstances when a legal
+            practitioner may be disentitled from asserting the said rights.
+            <strong>10 marks</strong>
+          </li>
+
+          <li>
+            With the aid of statutory and case law authorities, advise
+            Dr. Haruna on the proper procedure to recover his professional
+            legal fees from Mallam Mangani.
+            <strong>7 marks</strong>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>Write short notes on all of the following:</p>
+
+        <ul>
+          <li>
+            Contingency fees and champerty —
+            <strong>5 marks</strong>
+          </li>
+
+          <li>
+            Privileged communication —
+            <strong>4 marks</strong>
+          </li>
+
+          <li>
+            Client account and trust account —
+            <strong>4 marks</strong>
+          </li>
+
+          <li>
+            Infamous conduct in professional respect —
+            <strong>4 marks</strong>
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          <strong>(a)</strong> By Code of Conduct, we mean?
+          <strong>7 marks</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> Outline the essence of the Code of Conduct
+          for Judicial Officers.
+          <strong>10 marks</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          With the expression of a diagrammatic illustration, discuss the
+          Structure of the Legal Profession in Nigeria.
+          <strong>17 marks</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          <strong>(a)</strong> List 7 importance of Ethics in a society.
+          <strong>7 marks</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> Explain 5 importance listed above.
+          <strong>10 marks</strong>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROFESSIONAL ETHICS II 2025/2026 -->
+<div id="professionalethics22025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('professionalethics2')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PROFESSIONAL ETHICS II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>ANSWER FOUR (4) QUESTIONS ONLY.</h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Barr. Snow was Managing Partner of Snow &amp; Associates in
+          Yenagoa. In 2024, the firm acted for Shell Nigeria Ltd in a
+          $500m arbitration against Niger Delta Services Ltd over breach
+          of an oil services contract.
+        </p>
+
+        <p>
+          During the arbitration, Barr. Snow obtained confidential pricing
+          data, trade secrets and Shell's litigation strategy. In February
+          2026, while the arbitration was still ongoing, Niger Delta
+          Services Ltd approached Barr. Snow's Junior Partner (Barr. Goody)
+          to brief the firm to represent it in a separate $100m debt
+          recovery suit against Shell.
+        </p>
+
+        <p>
+          The new matter was unrelated to the arbitration but involved
+          the same parties. Upon learning this, Barr. Snow immediately
+          wrote to Shell terminating the firm's retainer in the arbitration,
+          citing "irreconcilable differences".
+        </p>
+
+        <p>
+          Few days later, the firm accepted the brief from Niger Delta
+          Services Ltd and Shell petitioned the LPDC for infamous conduct.
+        </p>
+
+        <p><strong>Issues for determination:</strong></p>
+
+        <ul>
+          <li>
+            With reference to the RPC 2023 and decided cases, has
+            Snow &amp; Associates breached the Rules of Professional
+            Conduct by dropping Shell and accepting Niger Delta's brief?
+          </li>
+
+          <li>
+            Does the "Hot Potatoes Doctrine" apply in this case since
+            the new suit was on a different subject matter?
+          </li>
+        </ul>
+
+        <p>
+          Support your answers with relevant provisions of the RPC and
+          decided authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          "The right of a legal practitioner to practice is not absolute."
+        </p>
+
+        <p>
+          With relevant provisions of the Legal Practitioners Act and
+          Rules of Professional Conduct for Legal Practitioners, discuss
+          the statutory and professional restrictions placed on the right
+          of practice of a legal practitioner in Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          On June 14th, Barrister Godrick was called by Mr. Rommel on
+          phone to come to his store (Rick Enterprise) for a brief of
+          wrongful dismissal.
+        </p>
+
+        <p>
+          On hearing the brief, the legal practitioner refused to take
+          up the matter on grounds that his wife is the managing director
+          of the sister company of Rommel's former employer.
+        </p>
+
+        <p>
+          Barrister Godrick is also representing another company
+          (Tasty Alitess) in a taxation matter at Federal High Court,
+          Abuja, in which the company is the plaintiff.
+        </p>
+
+        <p>
+          At the last hearing of the case, Godrick nearly was embroiled
+          in a heated argument with Prof. P. J. Fawei, a Senior Advocate.
+          The crux of their disagreement bordered on who should mention
+          his case before the other. It took the intervention of the
+          presiding judge to save the situation.
+        </p>
+
+        <p>
+          On arrival at his residence, Godrick discussed confidential
+          information of the taxation case with his friend Ferdinand
+          and his neighbour Josephine.
+        </p>
+
+        <p>
+          With relevant statutory and judicial authorities, identify and
+          discuss all the ethical issues raised in the scenario.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Barr. Moon is a legal practitioner based in Yenagoa who hosts
+          a weekly radio programme titled "You and the Law."
+        </p>
+
+        <p>
+          In one episode titled "How to sue Banks for wrongful deductions
+          and recover your money effortlessly", he discussed the legal
+          procedures and at the end of the programme, Barr. Moon gave out
+          his email address to be reached for further details on the
+          subject matter.
+        </p>
+
+        <p>
+          Barr. Biggy petitioned the NBA Yenagoa Branch alleging that
+          Barr. Moon acted unethically for advertising, solicitation
+          and touting.
+        </p>
+
+        <p>
+          The NBA Yenagoa Branch found Barr. Moon culpable and imposed
+          a one-year suspension from practice. The findings of the NBA
+          Yenagoa Branch against Barr. Moon was affirmed by the Legal
+          Practitioners Disciplinary Committee (LPDC).
+        </p>
+
+        <p>
+          However, Barr. Moon is contemplating an appeal against the
+          sanction.
+        </p>
+
+        <p><strong>Issues for determination:</strong></p>
+
+        <ul>
+          <li>
+            As a student of Professional Ethics, review the decisions
+            of NBA Yenagoa Branch and the LPDC in the light of the
+            RPC 2023 and decided cases.
+          </li>
+
+          <li>
+            What are the chances of securing a successful appeal since
+            the sanction had been affirmed by the LPDC?
+          </li>
+
+          <li>
+            Which court is competent to hear the appeal if at all?
+          </li>
+        </ul>
+
+        <p>
+          Discuss with reference to the Rules of Professional Conduct,
+          2023 and relevant authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Okiemue Esq is a legal practitioner called to the Nigerian Bar
+          in the year 2019. He has since commenced law practice and is
+          currently the managing partner of Okiemute &amp; Associates
+          in Ekeki, Bayelsa State.
+        </p>
+
+        <p>
+          His client Mr. Douye, who is a businessman desirous of owning
+          a factory, gave Okiemute Esq a cash sum of N10,000,000 only
+          to purchase a factory.
+        </p>
+
+        <p>
+          Okiemute Esq paid the money into his personal account with
+          First Bank Ltd, bought an iPhone 17 for his wife and also
+          paid for his office rent from the said monies deposited in
+          his personal bank account, hoping to refund the money later.
+        </p>
+
+        <p>
+          Identify and discuss the professional issues that may be raised
+          against Okiemute with reference to the Rules of Professional
+          Conduct 2023 and Legal Practitioners Act.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          Barr. Ekong Bassey and two other lawyers were Principal Partners
+          in the law firm of Omogos &amp; Co. Associates in Yenagoa.
+        </p>
+
+        <p>
+          One of the Partners was mentally unstable and had sought
+          medical attention abroad. On 10 January 2026, the other Partner
+          secured a political appointment with the Federal Government.
+        </p>
+
+        <p>
+          On 3rd April 2026, Barr. Ekong sent an unsolicited email to
+          the Legal Department of MTN Nigeria Communications Plc. The
+          email reads:
+        </p>
+
+        <div class="question-box">
+          <p>
+            "Dear Director of Legal Services,
+          </p>
+
+          <p>
+            We write to intimate you that Omogos &amp; Co Associates are
+            very good at handling high profile cases similar to the case
+            currently instituted by Bayelsa State Government against MTN
+            for breaching its Partnership Agreement with the State
+            Government.
+          </p>
+
+          <p>
+            We also understand that there is a legal firm representing
+            you in the case. However, high profile cases need a law firm
+            with broader legal experience and connections with the
+            judiciary.
+          </p>
+
+          <p>
+            We have successfully handled similar multi-billion naira
+            matters and we can get you a better result. Please, let us
+            know if you need our services.
+          </p>
+
+          <p>
+            Yours faithfully,<br>
+            Ekong Bassey Esq<br>
+            For: Omogos &amp; Co. Associates
+          </p>
+        </div>
+
+        <p>
+          The email sent to MTN was leaked out and the firm representing
+          MTN through the NBA Yenagoa Branch petitioned the Legal
+          Practitioners Disciplinary Committee (LPDC), alleging that
+          Barr. Ekong and Omogos &amp; Co. Associates engaged in touting
+          and improper advertising.
+        </p>
+
+        <p><strong>Issues for determination:</strong></p>
+
+        <ul>
+          <li>
+            With reference to the Rules of Professional Conduct for
+            Legal Practitioners (RPC) 2023 and decided authorities,
+            discuss the ethical implications of Barr. Ekong's email
+            to MTN.
+          </li>
+
+          <li>
+            Are the Principal Partners of the Omogos &amp; Co. Associates
+            vicariously liable for Barr. Ekong's actions?
+          </li>
+
+          <li>
+            What sanctions, if any, are likely to be imposed by the LPDC?
+          </li>
+        </ul>
+
+        <p>
+          Support your answers with relevant provisions of the RPC and
+          decided authorities.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- HUMAN RIGHTS LAW -->
+<div id="humanrights" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100second')">← Back</button>
+
+    <h2 class="section-title">HUMAN RIGHTS LAW</h2>
+
+    <button class="course-btn" onclick="showPage('humanrights2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('humanrights2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+<!-- HUMAN RIGHTS LAW 2024/2025 -->
+<div id="humanrights2024" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('humanrights')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>HUMAN RIGHTS LAW</h2>
+
+      <p class="session">
+        2024/2025 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER QUESTION 1 AND ANY OTHER 3 QUESTIONS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> The protection of Fundamental Human Rights
+          is one of the core features of the Nigerian constitutional
+          framework. With reference to the 1999 Constitution of the
+          Federal Republic of Nigeria (as amended), discuss extensively
+          the Fundamental Human Rights guaranteed under the Constitution.
+          In your answer, outline the various rights, and state the
+          relevant constitutional provisions.
+          <strong>(15 Marks)</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> Following a series of violent clashes
+          between a militant group known as the Niger Delta Freedom
+          Movement and security forces, the Federal Government arrested
+          the group's leader, Ebiwei, and charged him with treasonable
+          felony.
+        </p>
+
+        <p>
+          Ebiwei's lawyers filed an application before the Federal High
+          Court seeking his release on bail, arguing that his right to
+          personal liberty under Section 35 of the 1999 Constitution
+          (as amended) had been violated.
+        </p>
+
+        <p>
+          They contended that he was presumed innocent until proven guilty
+          and that there was no justification for his continued detention.
+          The Attorney-General of the Federation opposed the application,
+          arguing that Ebiwei's release would pose a threat to national
+          security and public order, and that the Constitution allows
+          certain derogations of fundamental rights in such situations.
+        </p>
+
+        <p>
+          As a law student, advise the court on whether the continued
+          detention of Ebiwei is justified under the 1999 Constitution
+          of the Federal Republic of Nigeria, with reference to
+          constitutional and judicial authorities.
+          <strong>(10 Marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Discuss the concept of domestication of treaties under Nigerian
+          law. In your answer, explain when and how a human rights treaty
+          becomes enforceable in Nigeria, with reference to relevant
+          constitutional provisions and case law.
+          <strong>(15 Marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>Write short notes on:</p>
+
+        <ul>
+          <li>UDHR — <strong>5 Marks</strong></li>
+          <li>ICCPR — <strong>5 Marks</strong></li>
+          <li>CEDAW — <strong>5 Marks</strong></li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Write a short note on the African Charter on Human and
+          People's Rights.
+          <strong>(15 Marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          With reference to Human Rights Law, differentiate between a
+          Right-Holder and a Duty Bearer.
+          <strong>(15 Marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          Explain the concept of the vertical application of fundamental
+          human rights. In your answer, identify the parties involved and
+          illustrate your explanation with relevant examples.
+          <strong>(15 Marks)</strong>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- HUMAN RIGHTS LAW 2025/2026 -->
+<div id="humanrights2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('humanrights')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>HUMAN RIGHTS LAW</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>ANSWER FOUR (4) QUESTIONS ONLY.</h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Nigeria ratified the International Covenant on Civil and
+          Political Rights (ICCPR). However, the treaty has not been
+          enacted into law by the Nigerian National Assembly.
+        </p>
+
+        <p>
+          During a peaceful protest, Praise was arrested and detained
+          without trial for two weeks. She instituted an action before
+          a High Court in Nigeria, relying solely on the provisions of
+          the ICCPR to enforce her fundamental rights.
+        </p>
+
+        <p>
+          The Federal Government argues that although Nigeria has
+          ratified the ICCPR, it is not enforceable in Nigerian courts
+          because it has not been domesticated.
+        </p>
+
+        <p>Advise the parties on the following:</p>
+
+        <ul>
+          <li>
+            Explain the doctrine of domestication of treaties under
+            Nigerian law.
+          </li>
+
+          <li>
+            State whether the ICCPR is enforceable in Nigeria merely
+            because it has been ratified.
+          </li>
+
+          <li>
+            Mention one international human rights instrument that has
+            been domesticated in Nigeria and explain why it is enforceable
+            in Nigerian courts.
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          The Constitution of the Federal Republic of Nigeria, 1999
+          (as amended), guarantees several fundamental rights to every
+          person within Nigeria.
+        </p>
+
+        <p>
+          With reference to the relevant provisions of Chapter IV of
+          the Constitution, enumerate and briefly explain the rights to
+          life, dignity of human person and freedom of movement guaranteed
+          under the Constitution.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          The Federal Government of Nigeria received credible intelligence
+          that a group known as the Freedom Restoration Movement (FRM)
+          was planning coordinated attacks on critical national
+          infrastructure.
+        </p>
+
+        <p>
+          Acting on this intelligence, security agencies arrested the
+          group's leader, Caleb, together with several members.
+        </p>
+
+        <p>
+          The authorities prohibited all public rallies organised by the
+          group, restricted Caleb's movement within certain parts of the
+          country, and detained him for a period of 3 months without
+          admitting him to bail.
+        </p>
+
+        <p>
+          Justify the action of the Federal Government of Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>Write short notes on the following:</p>
+
+        <ol type="i">
+          <li>
+            African Charter on Human and Peoples' Rights (African Charter)
+          </li>
+
+          <li>
+            Universal Declaration of Human Rights (UDHR)
+          </li>
+
+          <li>
+            Convention on the Elimination of All Forms of Discrimination
+            Against Women (CEDAW)
+          </li>
+        </ol>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Distinguish the concepts of vertical and horizontal application
+          of human rights with relevant authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          All courts in Nigeria are courts of first instance that can
+          assume jurisdiction over human rights violations.
+        </p>
+
+        <p>
+          Critically examine this statement with the aid of statutory
+          provisions and judicial authorities.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- LOGIC AND CRITICAL THINKING II -->
+<div id="logiccriticalthinking2" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100second')">← Back</button>
+
+    <h2 class="section-title">LOGIC AND CRITICAL THINKING II</h2>
+
+    <button class="course-btn" onclick="showPage('logiccriticalthinking22024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('logiccriticalthinking22025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+<!-- LOGIC AND CRITICAL THINKING II 2024/2025 -->
+<div id="logiccriticalthinking22024" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('logiccriticalthinking2')">← Back</button>
+
+    <div class="question-box">
+      <h2>LOGIC AND CRITICAL THINKING II</h2>
+      <p class="session">2024/2025 ACADEMIC SESSION (100 LEVEL)</p>
+      <p class="session">SECOND SEMESTER QUESTIONS</p>
+      <h3>QUESTIONS COMING SOON.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIC AND CRITICAL THINKING II 2025/2026 -->
+<div id="logiccriticalthinking22025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('logiccriticalthinking2')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>LOGIC AND CRITICAL THINKING II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER NO. 1 AND ANY OTHER TWO QUESTIONS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          As a lawyer to be, why do you think that the study of symbolic
+          logic is critical to your mental and professional development?
+          With no less than 10 points give your reasons for or against.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>(a)</strong> What are the differences between material
+          implication and material equivalence?
+        </p>
+
+        <p>
+          <strong>(b)</strong> Using truth tables, demonstrate material
+          implication and material equivalence.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Give two examples of material implication
+          statement and material equivalent statement.
+        </p>
+
+        <p>
+          <strong>(d)</strong> Do you think that material implication is
+          in consonance with the laws of thought? Make your case.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          <strong>(a)</strong> List and explain the laws of thoughts.
+        </p>
+
+        <p>
+          <strong>(b)</strong> With no less than ten points make a case
+          for the mastery of the laws of thoughts for a successful legal
+          practice.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          <strong>(a)</strong> List and explain five fallacies.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Do you think that a lawyer with a mastery
+          of the fallacies is better off than the one without such mastery?
+          Make your case for or against with no less than 10 points.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Define and draw truth tables for the following:
+        </p>
+
+        <ol type="a">
+          <li>Conjunction</li>
+          <li>Disjunction</li>
+          <li>Material Implication</li>
+          <li>Material Equivalence</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- PSYCHOLOGY -->
+<div id="psychology" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('100second')">← Back</button>
+
+    <h2 class="section-title">PSYCHOLOGY</h2>
+
+    <button class="course-btn" onclick="showPage('psychology2024')">
+      2024/2025 Academic Session
+    </button>
+
+    <button class="course-btn" onclick="showPage('psychology2025')">
+      2025/2026 Academic Session
+    </button>
+  </div>
+</div>
+
+<!-- PSYCHOLOGY 2024/2025 -->
+<div id="psychology2024" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('psychology')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PSYCHOLOGY</h2>
+
+      <p class="session">
+        2024/2025 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY THREE QUESTIONS. ALL QUESTIONS CARRY EQUAL MARKS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> How will you explain to your friend in the
+          Faculty of Science that this course is as scientific as his
+          course of discipline? <strong>(10 marks)</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> If there is a gunshot in this examination
+          hall now, how are you going to react? <strong>(13 marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>(a)</strong> To what extent will you agree with the
+          nature-nurture hypothesis, demonstrate with evidences, which
+          of the paradigm you lean towards. <strong>(13 marks)</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> How do individual deal with real or
+          perceived inadequacies? <strong>(10 marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Highlight the basic steps in research in social scientific
+          research. <strong>(23 marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          With reference to biological basis of human behavior, freely
+          explain why you have certain behavioral traits.
+          <strong>(23 marks)</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          <strong>(a)</strong> What are the differences in the functions
+          of the hormones in the endocrine system and neurotransmitters
+          in the nervous system? <strong>(10 marks)</strong>
+        </p>
+
+        <p>
+          <strong>(b)</strong> Succinctly describe the physiology of any
+          sense organ you are familiar with. <strong>(13 marks)</strong>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- PSYCHOLOGY 2025/2026 -->
+<div id="psychology2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('psychology')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>INTRODUCTION TO PSYCHOLOGY</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (100 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>ANSWER ANY THREE QUESTIONS.</h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>(a)</strong> Explain the concept of conformity in social
+          behavior and why do you think people conform in social settings.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Explain the similarities in the social
+          behavior of human and animal.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Explain the process of the endocrine system in control of
+          various biological needs (sex, menstrual cycle, breast milk
+          production), how is it different from the actions of
+          neurotransmitters.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Critically explain the assumptions of psycho-analysis theory
+          of Sigmund Freud in personality development, and how does it
+          relate to coping with real or imagined inadequacies.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          If a troop of bandits enter the University Campus looking all
+          dangerous, with assorted military grade weapons, with the aim
+          of conducting mass kidnap, how will your nervous system respond
+          to this dangerous situation?
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          With reference to the four (4) D(s), define Abnormal Behavior.
+          What are the models for understanding and explaining Abnormal
+          Behavior?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+  <!-- 200 LEVEL -->
+  <div id="200level" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('home')">← Back</button>
+      <h2 class="section-title">200 LEVEL</h2>
+      <button class="semester-btn" onclick="showPage('200first')">
+  First Semester
+</button>
+
+<button class="semester-btn" onclick="showPage('200second')">
+  Second Semester
+</button>
+    </div>
+  </div>
+<!-- 200 LEVEL FIRST SEMESTER -->
+<div id="200first" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200level')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">200 LEVEL — FIRST SEMESTER</h2>
+
+    <button class="course-btn" onclick="showPage('lawofcontract')">
+      LAW OF CONTRACT
+    </button>
+
+    <button class="course-btn" onclick="showPage('nigerianlegalsystem')">
+      NIGERIAN LEGAL SYSTEM
+    </button>
+
+    <button class="course-btn" onclick="showPage('constitutionallaw')">
+      CONSTITUTIONAL LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('pressandmedialaw')">
+      PRESS AND MEDIA LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('customarylaw')">
+      CUSTOMARY LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('taxationlaw')">
+      TAXATION LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('entrepreneurship')">
+      ENTREPRENEURSHIP AND INNOVATION
+    </button>
+<button class="course-btn" onclick="showPage('computerliteracy')">
+  COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES I
+</button>
+  </div>
+</div>
+<!-- 200 LEVEL FIRST SEMESTER -->
+<div id="200first" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200level')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">200 LEVEL — FIRST SEMESTER</h2>
+
+    <button class="course-btn" onclick="showPage('lawofcontract')">
+      LAW OF CONTRACT
+    </button>
+
+    <button class="course-btn" onclick="showPage('nigerianlegalsystem')">
+      NIGERIAN LEGAL SYSTEM
+    </button>
+
+    <button class="course-btn" onclick="showPage('constitutionallaw')">
+      CONSTITUTIONAL LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('pressandmedialaw')">
+      PRESS AND MEDIA LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('customarylaw')">
+      CUSTOMARY LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('taxationlaw')">
+      TAXATION LAW
+    </button>
+
+    <button class="course-btn" onclick="showPage('entrepreneurship')">
+      ENTREPRENEURSHIP AND INNOVATION
+    </button>
+    
+<button class="course-btn" onclick="showPage('computerliteracy')">
+  COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES I
+</button>
+  
+  </div>
+</div>
+
+
+<!-- LAW OF CONTRACT -->
+<div id="lawofcontract" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">LAW OF CONTRACT</h2>
+
+    <button class="semester-btn" onclick="showPage('lawofcontract2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+
+<!-- LAW OF CONTRACT 2025/2026 -->
+<div id="lawofcontract2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('lawofcontract')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>NIGERIAN LAW OF CONTRACT I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR (4) QUESTIONS OUT OF THE SIX (6) QUESTIONS PROVIDED.
+        EACH QUESTION CARRIES 17.5 MARKS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Randy Rose runs a self-service shop and an online store for
+          electrical appliances. It placed an online advertisement for
+          the new stock of solar panels which just arrived from Germany:
+        </p>
+
+        <p>
+          <strong>
+            "Limited stock! Akatec model solar panel for N1 Million only".
+          </strong>
+        </p>
+
+        <p>
+          On January 23, 2025 Brenda, a long-time customer of Randy Rose
+          sees the advertisement and immediately transferred the sum of
+          Two Million naira to Randy Rose account for two pieces of the
+          solar panel.
+        </p>
+
+        <p>
+          On January 24, 2025 Brenda went to the self-service shop with
+          Alkaline to pick up the solar panels. While the duo checked
+          through the shelves, Alkaline picked up some items and
+          transferred the total sum to Randy Rose account displayed on
+          the shop.
+        </p>
+
+        <p>
+          The duo took the receipts of the items to the Cashier for
+          confirmation to enable them take delivery of the items.
+          The Cashier informed Brenda that the solar panels go for
+          N2 Million each. The items paid for by Alkaline were also
+          said to have been underpaid.
+        </p>
+
+        <p>
+          The duo claims that binding contracts have been created between
+          them and Randy Rose. The Cashier tells them that both the online
+          advertisement and the price tags were solely intended to attract
+          customers.
+        </p>
+
+        <p>
+          <strong>Advise the parties.</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>(a)</strong> Define what capacity to contract means in
+          the Law of Contract.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Mention the three (3) characteristics of
+          persons who have the requisite capacity to contract.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Agro Farms, a large commercial farming company operating in
+          Bayelsa State, entered into a written lease agreement with
+          BLord Properties on January 25, 2016 for a 500-hectare arable
+          farmland.
+        </p>
+
+        <p>
+          The lease was for a fixed term of ten years. Clause 7 of the
+          lease agreement provides that upon termination of the lease,
+          the Tenant shall leave all manure produced on the land for the
+          benefit of the Landlord or the incoming tenant, without any
+          compensation.
+        </p>
+
+        <p>
+          The lease was silent on any obligation for the Landlord to
+          compensate the Tenant for seeds sown, labour expended, or
+          improvements made during the final year of the tenancy.
+        </p>
+
+        <p>
+          In the Bayelsa State agricultural region, there is a
+          long-established custom among farmers and landowners that
+          outgoing tenant is entitled to a fair and reasonable allowance
+          from the Landlord for the value of seeds sown, labour, and
+          cultivation work carried out in the final year that benefits
+          the land after the tenant has left.
+        </p>
+
+        <p>
+          On January 25, 2026, Agro Farms vacated the farm and demanded
+          compensation of N10 million from BLord Properties as value of
+          seeds sown, labour, and cultivation work carried out in 2025
+          that benefits the land after the tenant has left.
+        </p>
+
+        <p>
+          <strong>
+            Advise Agro Farms whether it is likely to succeed in
+            recovering the compensation.
+          </strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          On December 20, 2025, Saint Nicholas Group, a company based in
+          Abuja, sends a letter to Greenwood Tech, a firm in Yenagoa,
+          offering to sell a batch of 500 custom computer servers for
+          N350 Million.
+        </p>
+
+        <p>
+          The letter specifies that acceptance must be in writing and
+          sent by post, and it remains open until December 30, 2025.
+          Greenwood Tech received the letter on December 22, 2025.
+        </p>
+
+        <p>
+          Pleased with the terms, the Managing Director of Greenwood Tech
+          drafted an acceptance letter on December 23, 2025 and posts
+          it via first-class mail that same afternoon from a Yenagoa
+          post office.
+        </p>
+
+        <p>
+          Unknown to Greenwood Tech, due to a postal strike starting on
+          December 24, 2025 the letter is delayed and does not reach
+          Saint Nicholas Group until January 3, 2026.
+        </p>
+
+        <p>
+          Meanwhile, on December 26, 2025, Saint Nicholas Group finds
+          a better buyer and decides to revoke the offer. They send a
+          revocation letter by post to Greenwood Tech, which arrived on
+          December 28, 2025.
+        </p>
+
+        <p>
+          Greenwood Tech, having already posted their acceptance, ignored
+          the revocation and demanded delivery of the servers upon the
+          letter's eventual arrival at Saint Nicholas Group.
+        </p>
+
+        <p>
+          Saint Nicholas Group refuses to proceed, claiming no contract
+          was formed because the acceptance was not received before the
+          revocation took effect and the offer had lapsed by the time
+          the acceptance arrived.
+        </p>
+
+        <p>
+          <strong>
+            Advise Greenwood Tech on whether a valid contract has been
+            formed with Saint Nicholas Group.
+          </strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Lady B, a low-income single mother on welfare entered into
+          installment sales contract with Baseline Limited, a furniture
+          store based in Otuoke for the purchase of household goods over
+          five years.
+        </p>
+
+        <p>
+          The contract included a cross-collateralization clause, under
+          which no payments reduced the principal on any item until the
+          entire balance for all purchases was paid off by Lady B.
+        </p>
+
+        <p>
+          Lady B defaulted on the final item as a result of failure of
+          the Welfare Office to pay her monthly stipend due to industrial
+          action.
+        </p>
+
+        <p>
+          Baseline Limited is seeking to repossess all previously
+          purchased and partially paid-for furniture from Lady B, in
+          line with the contract.
+        </p>
+
+        <p>
+          Lady B contends that it is unjust of the company to repossess
+          the goods as sought, but the company argues that both parties
+          freely entered into the contract.
+        </p>
+
+        <p>
+          <strong>Advise the parties.</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          <strong>(a)</strong> What are implied terms of a contract and
+          why should the law imply terms in certain contracts?
+        </p>
+
+        <p>
+          <strong>(b)</strong> Explain the three (3) types of stipulations
+          in a contract that you have been taught and analyze the
+          consequences of the breach of each one of them citing copious
+          judicial authorities to support your views.
+        </p>
+
+        <p>
+          <strong>(c)</strong> What are exclusion and limitation clauses?
+          Briefly but generally state the consequences of inserting them
+          in a contract.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- NIGERIAN LEGAL SYSTEM -->
+<div id="nigerianlegalsystem" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">NIGERIAN LEGAL SYSTEM</h2>
+
+    <button class="semester-btn" onclick="showPage('nigerianlegalsystem2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+
+<!-- NIGERIAN LEGAL SYSTEM 2025/2026 -->
+<div id="nigerianlegalsystem2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('nigerianlegalsystem')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>NIGERIAN LEGAL SYSTEM I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR (4) QUESTIONS OUT OF THE SIX (6) QUESTIONS PROVIDED.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Law is an integral part of any society, either primitive or
+          civilised. The law in societies shape, regulate, curtail, and
+          even control excessive behaviours of individuals within the group.
+          The law plays a fundamental role in the society, but for law,
+          coexistence would have been unbearable for both banal and elicit
+          people in the society.
+        </p>
+
+        <p>
+          It may be described as a means which keeps the society in harmony
+          and peaceful ambience. Wherefore, it is appropriate to say that,
+          the law is an important aspect of the society. Now observe and
+          carefully react to the following:
+        </p>
+
+        <ul>
+          <li>
+            With well-articulated English grammar, describe what you think
+            is law?
+          </li>
+
+          <li>
+            Concisely enumerate the basic characteristics features of law
+            which binds the society.
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Write very brief explanatory notes on each of the following:
+        </p>
+
+        <ol type="i">
+          <li>Criminal and Civil law</li>
+          <li>Public and Private law</li>
+          <li>Just only the components of English received law in Nigeria</li>
+          <li>Natural and Divine Law</li>
+          <li>External and Manmade law</li>
+        </ol>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Conflict of interests is inevitable where two or more bodies of
+          law operate in a single legal system. In Nigeria, however,
+          conflict of interests is bound to be in existence in that, the
+          legal system is so complex, with numerous bodies of law in
+          operation.
+        </p>
+
+        <p>
+          The derivation from the English legal system due to a protracted
+          period of colonization, and the adoption of customary practices,
+          further compounds its complexity the more.
+        </p>
+
+        <p>
+          Howbeit, even in England, where our legal system stemmed from is
+          no different from Nigeria in terms of conflicting interest in
+          laws. This is demonstratively shown between common law and
+          doctrine of equity.
+        </p>
+
+        <p>
+          These two bodies of law plagued England, for a very long period
+          of time. It was so bad to an extent that when a judgement is
+          obtained at common law jurisdiction, it is frequently upturned
+          at the courts of equity.
+        </p>
+
+        <p>
+          However, it was amicably handled, and the problems was ameliorated
+          and perfected in the English Legal System.
+        </p>
+
+        <p>
+          Vividly analyse how this plaguing problem was solved, and its
+          implications in Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          The courts are veritable components of any viable legal system.
+          They are the bodies institutionally organised for adjudication,
+          whenever there is a breach of rights, between individuals, and
+          among government and her agencies.
+        </p>
+
+        <p>
+          The courts are configured to embrace both special and general
+          jurisdictions. Their operations in the legal system are quite
+          unique and different from each other, in terms of characters,
+          parties, and subject matters jurisdiction.
+        </p>
+
+        <p>
+          All courts, irrespective of the special nature, must function
+          within an enabling instrument of law.
+        </p>
+
+        <p>
+          Meticulously itemise the various courts of record as enshrined
+          in the Constitution, and their enabling sections.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          With constitutional reference, concisely demonstrate how each
+          of the following judicial officers are appointed in the Nigerian
+          Legal System:
+        </p>
+
+        <ul>
+          <li>The Chief Justice of Nigeria (CJN)</li>
+          <li>
+            The President of the Court of Appeal (PCA)
+          </li>
+          <li>
+            The President of the Customary Court of Appeal of the
+            Federal Capital Territory (FCT), Abuja
+          </li>
+          <li>
+            The Chief Judge of the State High Court
+          </li>
+          <li>
+            The President of the National Industrial Court of Nigeria
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          A legal system cannot survive without a vibrant and functional
+          government. Nigeria as a State, operates Federal type of
+          government, having semi detach units.
+        </p>
+
+        <p>
+          Every component part has a viable government which runs the
+          day-to-day activities of the units. All the domains of government
+          are important in their distinct responsibilities.
+        </p>
+
+        <p>
+          One cannot perform the duties and obligations of the others.
+          They function independently, in running the government smoothly
+          without interference.
+        </p>
+
+        <p>
+          In your own view, precisely identify, and make notes in brevity
+          on each of governmental units which runs the day-to-day
+          activities of the State of Nigeria.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CONSTITUTIONAL LAW -->
+<div id="constitutionallaw" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">CONSTITUTIONAL LAW</h2>
+
+    <button class="semester-btn" onclick="showPage('constitutionallaw2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+
+<!-- CONSTITUTIONAL LAW 2025/2026 -->
+<div id="constitutionallaw2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('constitutionallaw')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>CONSTITUTIONAL LAW I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR (4) QUESTIONS OUT OF THE SIX (6) QUESTIONS PROVIDED.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          The Federal Republic of Zuma has a written constitution and
+          requires a special resolution of 3/4th of the members of the
+          National Assembly to secure an amendment of same.
+        </p>
+
+        <p>
+          The President of the Senate of the National Assembly is desirous
+          of amending the Constitution to vest life Presidency to the
+          incumbent President of the Federal Republic of Zuma.
+        </p>
+
+        <p>
+          He has successfully secured the support of 195 members out of
+          the 380 members of the National Assembly and subsequently
+          declared that the constitution has been amended with 195
+          members votes.
+        </p>
+
+        <p>
+          The other members have argued that the Constitution cannot be
+          amended without strict compliance with its amendment provisions
+          while the Senate President supported by 195 members have held
+          unto the fact that the National Assembly has the final say in
+          constitutional amendment.
+        </p>
+
+        <p>
+          In the light of the above, advise the contending parties on the
+          concept of supremacy having regard to the nature of the
+          constitution operated by the Federal Republic of Zuma.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          A small group of the Independent Republic of Greenfield Military
+          plotted to overthrow the government but succeeded in assassinating
+          only the Vice President as the President escaped the assassination.
+        </p>
+
+        <p>
+          The Council of Ministers thereafter handed over the reign of
+          power to the Military.
+        </p>
+
+        <p>
+          The Military in a proclamation suspended parts of the constitution
+          including the National Assembly and also ousted the jurisdiction
+          of the courts to question the validity of the acts of the Military.
+        </p>
+
+        <p>
+          The Speaker of the National Assembly is contemplating to approach
+          the court to challenge the power of the military to suspend the
+          National Assembly of the Independent Republic of Greenfield.
+          He has approached you as a constitutional law expert.
+        </p>
+
+        <p>Advise him on the following:</p>
+
+        <ul>
+          <li>
+            Whether the Military takeover constitutes a revolution and can
+            therefore suspend the National Assembly and oust the
+            jurisdiction of the court?
+          </li>
+
+          <li>
+            Would your answer be different if it was an Edict that ousted
+            the jurisdiction of the courts?
+          </li>
+        </ul>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Mr. Somi Dike is a student of History in the Department of
+          History in the Federal University Otuoke.
+        </p>
+
+        <p>
+          He has sought to embark on a research project on the
+          constitutional history of Nigeria. Knowing that Law students
+          know a lot about the constitutional developments in Nigeria,
+          he has approached you for assistance.
+        </p>
+
+        <p>
+          Guide him through the constitutional developments from 1922
+          to 1963, highlighting the most important differences from one
+          constitutional era to the other.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Aristotle once said:
+        </p>
+
+        <p>
+          <strong>
+            "The Rule of law is preferable to every other rule of man."
+          </strong>
+        </p>
+
+        <p>
+          Justify the above statement by explaining the minimum contents
+          or elements upon which the concept stands in civilized nations.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          The Constitution of the Federal Republic of Nigeria, 1999
+          (as amended) has shared political power and governmental
+          functions both horizontally and vertically amongst different
+          arms and tiers of government.
+        </p>
+
+        <p>
+          With the aid of constitutional provisions and decided
+          authorities explain the relevant constitutional law concepts
+          envisaged.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>Write short notes on the following:</p>
+
+        <ul>
+          <li>Federal constitution and Unitary constitution</li>
+          <li>Rigid and Flexible constitution</li>
+          <li>Written and Unwritten constitution</li>
+          <li>Presidential and Parliamentary constitution</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- PRESS AND MEDIA LAW -->
+<div id="pressandmedialaw" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">PRESS AND MEDIA LAW</h2>
+
+    <button class="semester-btn" onclick="showPage('pressandmedialaw2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+<!-- PRESS AND MEDIA LAW 2025/2026 -->
+<div id="pressandmedialaw2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('pressandmedialaw')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PRESS AND MEDIA LAW I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR (4) QUESTIONS OUT OF THE SIX (6) QUESTIONS PROVIDED.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          The Ministry of Health refuses to release information on a
+          widespread outbreak of an infectious disease, citing national
+          security and public panic concerns.
+        </p>
+
+        <p>
+          Journalists argue that disclosure is necessary to protect lives.
+        </p>
+
+        <p>
+          Apply the doctrine of Overriding Public Interest to determine
+          whether the information should be disclosed.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>
+            "The Right to Know is not absolute."
+          </strong>
+        </p>
+
+        <p>
+          Critically discuss this statement, identifying the major
+          limitations to the Right to Know under Nigerian law.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Trace the historical evolution of the press in Nigeria from the
+          pre-colonial period to the digital age.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Define the concepts of the press and the media. Distinguish
+          clearly between the two and explain why these definitions are
+          important for regulatory purposes in modern democratic societies.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          In the interest of public morality, national defense and
+          protection of the rights of others, media contents are limited.
+          Explain.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          What is the legal basis for media censorship?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CUSTOMARY LAW -->
+<div id="customarylaw" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">CUSTOMARY LAW</h2>
+
+    <button class="semester-btn" onclick="showPage('customarylaw2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+<!-- CUSTOMARY LAW 2025/2026 -->
+<div id="customarylaw2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('customarylaw')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>CUSTOMARY LAW I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR (4) QUESTIONS OUT OF THE SIX (6) QUESTIONS PROVIDED.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Okoronkwo Uche from Imo State died, leaving behind five children.
+          Two among them were female (Chika and Ifeoma).
+        </p>
+
+        <p>
+          A dispute broke out between the children in respect of their
+          rights of inheritance to their late father's properties.
+        </p>
+
+        <p>
+          The contention was that female children were not entitled to
+          the property of their late father as custom in Imo State
+          excludes female children from inheriting their father's property.
+        </p>
+
+        <p>
+          Chika and Ifeoma have approached you for your legal opinion.
+          <strong>Advise them.</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Mr. Micheal John married Esther by paying her bride-price in
+          full to her parents.
+        </p>
+
+        <p>
+          However, Esther left her matrimonial home and husband and went
+          ahead to have children with another man.
+        </p>
+
+        <p>
+          Mr. Micheal John is claiming that the children are his on the
+          ground that the customary law governing them still acknowledges
+          him as the husband of Esther.
+        </p>
+
+        <p>
+          He further contends that Esther is not allowed under the
+          customary law to marry another man until the bride-price paid
+          was refunded to him.
+        </p>
+
+        <p>
+          Esther has approached you as her legal counsel.
+          <strong>Advise her accordingly.</strong>
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          List and write short notes on the various customary judicial
+          processes under African customary law.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Section 16 of the Evidence Act provides that a custom may be
+          adopted as part of the law governing a particular set of
+          circumstances if it can be proved to exist by evidence.
+        </p>
+
+        <p>
+          How do you prove the existence of custom?
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          <strong>(a)</strong> A customary practice can metamorphose into
+          a customary law only after it has been successfully subjected
+          and passed some tests. Discuss.
+        </p>
+
+        <p>
+          <strong>(b)</strong> State the features of customary law in
+          Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>Write short notes on the following:</p>
+
+        <ul>
+          <li>Family head</li>
+          <li>Family council</li>
+          <li>Family social responsibility</li>
+          <li>Trial by Ordeal</li>
+          <li>Oath-taking</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- TAXATION LAW -->
+<div id="taxationlaw" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">TAXATION LAW</h2>
+
+    <button class="semester-btn" onclick="showPage('taxationlaw2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+
+<!-- TAXATION LAW I 2025/2026 -->
+<div id="taxationlaw2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('taxationlaw')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>TAXATION LAW I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY FOUR QUESTIONS OUT OF THE SIX QUESTIONS PROVIDED.
+        CITATION OF JUDICIAL AND STATUTORY AUTHORITIES WILL ATTRACT EXTRA MARKS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Engr. Mfon is a Nigerian citizen who works as a mechanical engineer
+          for Shell Petroleum Development Company Ltd (SPDC). In 2025, he spent
+          four months working offshore in Angola, three months in Ghana, and
+          five months in Nigeria. While in Ghana, he earned N6,000,000 which
+          was taxed under Ghanaian law. He also earned N9,000,000 from his
+          Nigerian employer and N3,500,000 as rent from a property in Ibadan.
+          The Federal Inland Revenue Service (FIRS) assessed his tax on his
+          total income for the year of assessment.
+        </p>
+
+        <p>
+          <strong>(a)</strong> Determine Engr. Mfon's residency for tax purposes.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Identify which of the incomes are chargeable to
+          tax in Nigeria.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Advise Engr. Mfon on whether he is entitled to
+          any relief in respect of the tax on the money earned in Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Mrs. Ikogi is a fashion entrepreneur operating in Lagos. In 2022,
+          her business records showed the following: Gross business income:
+          N15,000,000; Allowable expenses: N4,000,000; Capital allowance
+          claimed: N2,500,000; Personal reliefs: N1,200,000. The tax authority
+          assessed her chargeable income at N10,800,000. Mrs. Ikogi objects to
+          the assessment, arguing that the computation is incorrect.
+        </p>
+
+        <p>
+          <strong>(a)</strong> Explain the concepts of assessable income and
+          chargeable income.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Determine the correct chargeable income, if any.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Enumerate four (4) non-taxable incomes.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Purejoy Ltd is incorporated in Nigeria but has its management and
+          control in Kenya. The company operates a large cocoa processing plant
+          in Ondo State and exports most of its products. The Commissioner of
+          Inland Revenue in Ondo through a memo directed that since Purejoy Ltd
+          earned about N750,000,000 from operations in Ondo, Purejoy will, in
+          addition to its Company Income Tax, pay 2% of that money to Ondo State
+          as development tax. The company also earns N60,000,000 from export
+          sales to Europe and N40,000,000 from consultancy services rendered in
+          Kenya. The company argues that it is not liable to Companies Income
+          Tax in Nigeria because it is not resident in Nigeria.
+        </p>
+
+        <p>
+          <strong>(a)</strong> Advise Purejoy Ltd on its tax liability in Nigeria.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Advise Ondo State Government on the legality of
+          imposing development levy tax.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Explain the two types of taxes in Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          The Bayelsa State Internal Revenue Service (BSIRS) sealed the business
+          premises of Peaceson's Services without prior notice, alleging failure
+          to remit Pay-As-You-Earn (PAYE) deductions for several years.
+          Peaceson's Services contends that the action was unlawful and violated
+          its right to fair hearing.
+        </p>
+
+        <p>
+          <strong>(a)</strong> Examine the powers of tax authorities to enforce
+          tax compliance.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Discuss the rights of taxpayers during tax
+          enforcement proceedings.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Advise Peaceson's Services on the legality of the
+          action taken by BSIRS.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          During Tax Proceedings in Nigeria a taxpayer is not at the mercy of
+          the tax authority. Nigerian law guarantees several procedural and
+          constitutional rights during tax assessment, enforcement, and
+          recovery. Discuss those rights with the aid of decided cases and
+          statutory authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          <strong>(a)</strong> What is taxation?
+        </p>
+
+        <p>
+          <strong>(b)</strong> What are the canons or principles of a good tax
+          system according to Adam Smith?
+        </p>
+
+        <p>
+          <strong>(c)</strong> What are the objectives of tax?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ENTREPRENEURSHIP AND INNOVATION -->
+<div id="entrepreneurship" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200first')">← Back</button>
+    <h2 class="section-title">ENTREPRENEURSHIP AND INNOVATION</h2>
+
+    <button class="semester-btn" onclick="showPage('entrepreneurship2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+  </div>
+</div>
+
+<!-- ENTREPRENEURSHIP AND INNOVATION 2025/2026 -->
+<div id="entrepreneurship2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('entrepreneurship')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>ENTREPRENEURSHIP AND INNOVATION</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>INSTRUCTION: ANSWER ALL QUESTIONS</h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+        <p>
+          The Theory of Creative Destruction was developed by....
+          (A) Richard Cantillon
+          (B) Israel Kuzner
+          (C) Joseph Schumpeter
+          (D) Peter Drucker
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+        <p>
+          Creative destruction refers to......
+          (A) Destruction of small businesses by government
+          (B) Replacement of old products and processes with innovative ones
+          (C) Elimination of competition
+          (D) Reduction in production cost
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+        <p>
+          According to Kirzner, the economy is always in a state of.....
+          (A) Perfect equilibrium
+          (B) Monopoly
+          (C) Disequilibrium
+          (D) Stability
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+        <p>
+          Kirzner's theory emphasizes that entrepreneurs are alert to...
+          (A) Government policies
+          (B) Profitable opportunities
+          (C) Bank loans
+          (D) Tax reduction
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+        <p>
+          Richard Cantillon described an entrepreneur as an....
+          (A) Innovator
+          (B) Manager
+          (C) Arbitrageur
+          (D) Risk avoider
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+        <p>
+          An entrepreneurial mindset primarily enables individuals to....
+          (A) Avoid responsibility
+          (B) Depend on others
+          (C) See opportunities where others see obstacles
+          (D) Eliminate competition
+        </p>
+      </div>
+
+      <!-- QUESTION 7 -->
+      <div class="question">
+        <h3>7.</h3>
+        <p>
+          Which of the following is NOT a characteristic of an entrepreneurial mindset?
+          (A) Resilience
+          (B) Risk tolerance
+          (C) Passivity
+          (D) Adaptability
+        </p>
+      </div>
+
+      <!-- QUESTION 8 -->
+      <div class="question">
+        <h3>8.</h3>
+        <p>
+          Innovative thinking involves......
+          (A) Copying competitors
+          (B) Thinking creatively and differently
+          (C) Avoiding risks
+          (D) Ignoring customer needs
+        </p>
+      </div>
+
+      <!-- QUESTION 9 -->
+      <div class="question">
+        <h3>9.</h3>
+        <p>
+          According to Drucker (1985), innovation is.......
+          (A) A government policy
+          (B) The entrepreneur's specific tool to exploit change
+          (C) A marketing strategy
+          (D) A financial technique
+        </p>
+      </div>
+
+      <!-- QUESTION 10 -->
+      <div class="question">
+        <h3>10.</h3>
+        <p>
+          Creativity differs from innovation because.....
+          (A) Creativity requires money
+          (B) Innovation does not involve risk
+          (C) Creativity is idea generation while innovation is implementation
+          (D) Innovation cannot be measured
+        </p>
+      </div>
+
+      <!-- QUESTION 11 -->
+      <div class="question">
+        <h3>11.</h3>
+        <p>
+          The stage where a new idea is conceived in the creative process is called....
+          (A) Verification
+          (B) Illumination
+          (C) Preparation
+          (D) Evaluation
+        </p>
+      </div>
+
+      <!-- QUESTION 12 -->
+      <div class="question">
+        <h3>12.</h3>
+        <p>
+          A business idea is best described as....
+          (A) A registered company
+          (B) A government policy
+          (C) A proposed product or service to solve problems
+          (D) A financial institution
+        </p>
+      </div>
+
+      <!-- QUESTION 13 -->
+      <div class="question">
+        <h3>13.</h3>
+        <p>
+          Opportunity is defined as..
+          (A) A random event
+          (B) An unsatisfied human need or want
+          (C) A business loss
+          (D) A government grant
+        </p>
+      </div>
+
+      <!-- QUESTION 14 -->
+      <div class="question">
+        <h3>14.</h3>
+        <p>
+          Which of the following is NOT a characteristic of a promising business idea?
+          (A) Relevant
+          (B) Unique
+          (C) Profitable in the long run
+          (D) High competition
+        </p>
+      </div>
+
+      <!-- QUESTION 15 -->
+      <div class="question">
+        <h3>15.</h3>
+        <p>
+          Brainstorming is a technique used for.....
+          (A) Risk management
+          (B) Generating business ideas
+          (C) Financial planning
+          (D) Tax calculation
+        </p>
+      </div>
+
+      <!-- QUESTION 16 -->
+      <div class="question">
+        <h3>16.</h3>
+        <p>
+          Which of the following is a source of business opportunity?
+          (A) Problems
+          (B) Inflation
+          (C) Salary
+          (D) Weather
+        </p>
+      </div>
+
+      <!-- QUESTION 17 -->
+      <div class="question">
+        <h3>17.</h3>
+        <p>
+          In the opportunity development process, the stage where an opportunity
+          is screened is called...
+          (A) Identification
+          (B) Exploitation
+          (C) Evaluation
+          (D) Certification
+        </p>
+      </div>
+
+      <!-- QUESTION 18 -->
+      <div class="question">
+        <h3>18.</h3>
+        <p>
+          Which of the following is a characteristic of creative entrepreneurs?
+          (A) Rigidity
+          (B) Curiosity
+          (C) Fear of risk
+          (D) Laziness
+        </p>
+      </div>
+
+      <!-- QUESTION 19 -->
+      <div class="question">
+        <h3>19.</h3>
+        <p>
+          Innovation can be measured, while creativity.......
+          (A) Can be measured easily
+          (B) Cannot be measured
+          (C) Requires money
+          (D) Is always risky
+        </p>
+      </div>
+
+      <!-- QUESTION 20 -->
+      <div class="question">
+        <h3>20.</h3>
+        <p>
+          .... is NOT a characteristic of entrepreneurship
+          (A) Risk taker
+          (B) Innovator
+          (C) Cash distributor
+          (D) Independent minded
+        </p>
+      </div>
+
+      <!-- QUESTION 21 -->
+      <div class="question">
+        <h3>21.</h3>
+        <p>
+          Which of the following is NOT a role of entrepreneurship?
+          (A) Job creation
+          (B) Economy shrinker
+          (C) Problem solver
+          (D) Innovation driver
+        </p>
+      </div>
+
+      <!-- QUESTION 22 -->
+      <div class="question">
+        <h3>22.</h3>
+        <p>
+          The following are theories of entrepreneurship except
+          (A) Economic theories
+          (B) Agency theories
+          (C) Psychological theories
+          (D) Resource-based theories
+        </p>
+      </div>
+
+      <!-- QUESTION 23 -->
+      <div class="question">
+        <h3>23.</h3>
+        <p>
+          Is not significant in entrepreneur in the global economy
+          (A) Provides economic power
+          (B) Increase in welfare of citizens
+          (C) Global trade
+          (D) None of the above
+        </p>
+      </div>
+
+      <!-- QUESTION 24 -->
+      <div class="question">
+        <h3>24.</h3>
+        <p>
+          Opportunity are unsatisfied needs and wants of humans. True or False?
+        </p>
+      </div>
+
+      <!-- QUESTION 25 -->
+      <div class="question">
+        <h3>25.</h3>
+        <p>
+          The opportunity development process includes the following, except
+          (A) Identification of the opportunity
+          (B) Distribution of the opportunity
+          (C) Evaluation of the opportunity
+          (D) Exploitation of the opportunity
+        </p>
+      </div>
+
+      <!-- QUESTION 26 -->
+      <div class="question">
+        <h3>26.</h3>
+        <p>
+          Which of the following is not a source of idea generation
+          (A) Brainstorming
+          (B) Survey
+          (C) Research and development
+          (D) None of the above
+        </p>
+      </div>
+
+      <!-- QUESTION 27 -->
+      <div class="question">
+        <h3>27.</h3>
+        <p>
+          The strategic planning mechanism employed by entrepreneurs to showcase,
+          summarize and develop their business model is called
+          (A) Special plan
+          (B) Optimum strategy
+          (C) Model canvas
+          (D) All of the above
+        </p>
+      </div>
+
+      <!-- QUESTION 28 -->
+      <div class="question">
+        <h3>28.</h3>
+        <p>
+          Which of the following cannot constitute starting a business
+          (A) Exposing a business
+          (B) Starting a new business
+          (C) Buying existing business
+          (D) Franchising
+        </p>
+      </div>
+
+      <!-- QUESTION 29 -->
+      <div class="question">
+        <h3>29.</h3>
+        <p>
+          Is not a feature of a sole proprietorship
+          (A) Risk avoiding
+          (B) Single ownership
+          (C) Management and control
+          (D) Unlimited liability
+        </p>
+      </div>
+
+      <!-- QUESTION 30 -->
+      <div class="question">
+        <h3>30.</h3>
+        <p>
+          All but one are advantages of sole proprietorship
+          (A) Easy to start
+          (B) Sole beneficiary of profits
+          (C) Better control
+          (D) Large capital required
+        </p>
+      </div>
+
+      <!-- QUESTION 31 -->
+      <div class="question">
+        <h3>31.</h3>
+        <p>
+          Enterprise formation refers to the process of......
+          (A) Closing a business
+          (B) Starting and organizing a new business
+          (C) Borrowing money from a bank
+          (D) Marketing products
+        </p>
+      </div>
+
+      <!-- QUESTION 32 -->
+      <div class="question">
+        <h3>32.</h3>
+        <p>
+          The first step in enterprise formation is usually.....
+          (A) Hiring workers
+          (B) Identifying a business opportunity
+          (C) Paying taxes
+          (D) Buying equipment
+        </p>
+      </div>
+
+      <!-- QUESTION 33 -->
+      <div class="question">
+        <h3>33.</h3>
+        <p>
+          A document that explains the goals and operations of a business is called......
+          (A) Receipt
+          (B) Ledger
+          (C) Business plan
+          (D) Invoice
+        </p>
+      </div>
+
+      <!-- QUESTION 34 -->
+      <div class="question">
+        <h3>34.</h3>
+        <p>
+          The money used to start a business is known as.....
+          (A) Profit
+          (B) Capital
+          (C) Interest
+          (D) Salary
+        </p>
+      </div>
+
+      <!-- QUESTION 35 -->
+      <div class="question">
+        <h3>35.</h3>
+        <p>
+          An individual who starts and manages a business is called.
+          (A) Customer
+          (B) Entrepreneur
+          (C) Supplier
+          (D) Manager
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES I -->
+<div id="computerliteracy" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200first')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">
+      COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES I
+    </h2>
+
+    <button class="semester-btn" onclick="showPage('computerliteracy2025')">
+      2025/2026 ACADEMIC SESSION
+    </button>
+
+  </div>
+</div>
+
+<!-- COMPUTER LITERACY 2025/2026 -->
+<div id="computerliteracy2025" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('computerliteracy')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES I</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        FIRST SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ATTEMPT ANY 4 QUESTIONS OUT OF THE 6 QUESTIONS PROVIDED.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Word processing software is one of the most important applications
+          of computer technology in legal education and legal practice. In 4
+          ways, identify and discuss how word processing can be useful for law
+          students and legal practitioners.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Trace the chronological sequence on the evolution of computer
+          technology, with various advantages and disadvantages of each
+          generation.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          The integration of computers and digital technologies into legal
+          practice has transformed how lawyers, courts, and law students work.
+          Despite these numerous benefits, the use of computers in the legal
+          sector also presents several challenges. Identify 6 of these problems
+          and discuss them.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Electronic mail is one of the earliest applications but is still
+          widely used because of its unique features. Discuss the ways
+          e-mail is relevant to legal education and legal practice.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          The emergence of electronic law reports is being commended by many
+          digital legal scholars. Discuss in detail the advantages and, if any,
+          the disadvantages of electronic law reports.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          Write explanatory note on the following:
+        </p>
+
+        <p>
+          <strong>i.</strong> LawPavilion
+        </p>
+
+        <p>
+          <strong>ii.</strong> LexisNexis
+        </p>
+
+        <p>
+          <strong>iii.</strong> LegalPaedia
+        </p>
+
+        <p>
+          <strong>iv.</strong> HeinOnline
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- 200 LEVEL SECOND SEMESTER -->
+<div id="200second" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200level')">
+      ← Back
+    </button>
+
+    <h2 class="section-title">200 LEVEL — SECOND SEMESTER</h2>
+
+    <button class="course-btn" onclick="showPage('lawofcontract2')">
+      LAW OF CONTRACT II
+    </button>
+
+    <button class="course-btn" onclick="showPage('nigerianlegalsystem2')">
+      NIGERIAN LEGAL SYSTEM II
+    </button>
+
+    <button class="course-btn" onclick="showPage('constitutionallaw2')">
+      CONSTITUTIONAL LAW II
+    </button>
+
+    <button class="course-btn" onclick="showPage('pressandmedialaw2')">
+      PRESS AND MEDIA LAW II
+    </button>
+
+    <button class="course-btn" onclick="showPage('customarylaw2')">
+      CUSTOMARY LAW II
+    </button>
+
+    <button class="course-btn" onclick="showPage('taxationlaw2')">
+      TAXATION LAW II
+    </button>
+
+    <button class="course-btn" onclick="showPage('computerliteracy2')">
+      COMPUTER LITERACY II
+    </button>
+
+  </div>
+</div>
+
+<!-- LAW OF CONTRACT II 2025/2026 -->
+<div id="lawofcontract2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>NIGERIAN LAW OF CONTRACT II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER ANY 4 QUESTIONS OUT OF THE 6 QUESTIONS PROVIDED.
+        EACH QUESTION CARRIES 17.5 MARKS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          ABC Millers Ltd is a firm of millers based in Yenagoa and in the
+          course of their industrial milling operation the crankshaft of their
+          steam engine was broken and the operations came to a halt because
+          they do not have a spare one. If the mill is to begin operation again
+          there is need to fabricate a new crankshaft. The only competent
+          engineering company that can do a perfect fabrication is located in
+          Lagos. That same day because of the urgency of the need to keep the
+          mill running ABC Ltd contacted XYZ Haulage Ltd to deliver the broken
+          crankshaft to the Engineering Company in Lagos so that they can use
+          it as sample for the fabrication of a new one. A process that would
+          have taken a maximum of one week from the day of delivery. ABC
+          Millers did not inform XYZ Haulage that it has a special contract
+          to mill for Federal Ministry of Agriculture which it was under
+          pressure to execute which would have constituted a "special
+          circumstance". After collecting the crankshaft XYZ Haulage Company
+          Ltd delayed the delivery of the crankshaft to the Engineers in Lagos
+          for them to do their work and return the crankshaft to ABC Millers
+          Ltd. This unexplained delay resulted in ABC Millers from been able to
+          restart their steam engine for the resumption of its operations.
+          Meanwhile ABC Millers Ltd was already in trouble with its clients for
+          its inability to deliver for recent and long-time orders. Aggrieved
+          by the conduct of XYZ Haulage Ltd, ABC Millers Ltd has decided to
+          file a suit claiming (i) N100 million Naira damages for loss of
+          profit and (ii) N250 million for loss of profit from a special
+          strategic contract from the Federal Ministry of Agriculture. ABC
+          Millers Ltd has approached you as a legal expert in this area of law,
+          advise the company whether it would be able to commence and sustain
+          an action for breach of contract and whether the court is likely to
+          award both items of claims in (i) and (ii). Cite judicial authorities
+          to back the legal reasons for your answer.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          When a lawful contract has been made and one of the parties finds
+          himself in a situation which makes performance impossible, the courts
+          will not compel performance, but will discharge the contract.
+          However, the rules governing the discharge of contracts are
+          fragmented and sometimes inconsistent." Critically discuss this
+          statement with reference to the various methods of discharge.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          In April 2026, Anabel, the owner of a small boutique hotel in the
+          countryside, decided to sell her business due to increasing
+          operational costs. She placed an advertisement on a reputable
+          business sales website stating: "Profitable 12-bedroom boutique
+          hotel with strong annual turnover of N10,000,000.00, excellent trip
+          advice reviews, and fully refurbished in 2025. No outstanding
+          disputes with suppliers or regulatory authorities." Michael, an
+          experienced hotelier looking to expand his portfolio, contacted
+          Anabel. During face-to-face negotiations and subsequent email
+          exchanges, Anabel made the following statements: "The hotel has
+          generated an average net profit of N8,000,000.00 per annum for the
+          last three years, and is in perfect structural condition." When
+          Michael asked for verification, Anabel replied: "Everything is
+          accurate and up to date; you have my word. I wouldn't dream of
+          misleading you." Michael did not commission his own full due
+          diligence survey or audit because he relied heavily on Anabel's
+          assurances and the summarized accounts she provided. He entered
+          into a written contract to purchase the hotel for N85,000,000.00 on
+          15 May 2026. Six weeks after completion, Michael discovered that the
+          actual average annual net profit over the previous three years was
+          N5,000,000.00. Anabel had deliberately inflated the figures in the
+          accounts by including one-off insurance payouts and excluding several
+          major repair costs, knowing full well that the true figures were much
+          lower. The hotel had significant structural defects that were well
+          known to Anabel; she had received a detailed survey report
+          highlighting these problems six months earlier but deliberately
+          provided Michael with an altered version that omitted the defects.
+          Anabel admits she knew the statements were false at the time she
+          made them but claims Michael should have conducted his own
+          investigations and that the contract should stand.
+
+          <br><br>
+
+          <strong>(i)</strong> With the aid of relevant authorities, advise the
+          parties on the issues arising from the scenario.
+
+          <br><br>
+
+          <strong>(ii)</strong> Would your advice be different if Anabel's
+          false statement was made carelessly without reasonable grounds for
+          believing in its truth or there is a special relationship of reliance.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          In February 2026, Olivia, a freelance graphic designer, responded to
+          an online advertisement posted by Star Mark Ltd, a software
+          development company. The advertisement sought a designer to create
+          "a complete brand identity package including logo, colour scheme,
+          and website visuals for its new AI productivity app called
+          'FlowState'." Olivia quoted N15,000,000.00 for the full project, and
+          Star Mark Ltd accepted via email, stating: "We agree to your quote
+          for the FlowState brand identity project." Unknown to each other,
+          Olivia and Star Mark Ltd attached completely different meanings to
+          the term "brand identity package." Olivia reasonably understood the
+          contract to cover only static visual assets (logo, colour palette,
+          and basic website mock-ups), which was her standard service offering.
+          Star Mark Ltd, however, reasonably believed it included a full
+          interactive website design with user interface elements, animations,
+          and integration with their AI backend; a significantly more complex
+          and expensive scope of work worth at least N25,000,000.00. During
+          negotiations, Olivia sent sample logos and colour schemes based on
+          her understanding. Star Mark's CEO, Nicholas, replied: "These look
+          perfect for FlowState: can't wait to see the full website rollout."
+          Both parties honestly believed their own interpretation was the
+          obvious and correct one and did not realise there was any
+          misunderstanding. Olivia interpreted Nicholas' reply as enthusiasm
+          for her planned deliverables. Nicholas assumed his reference to
+          "full website rollout" aligned with Olivia's standard service.
+
+          After Olivia delivered the logo and mock-ups and invoiced for the
+          balance, Star Mark refused to pay, claiming the deliverables were
+          incomplete and that no true agreement had been reached. Olivia has
+          sued for the outstanding N5,000,000.00. Star Mark argues that no
+          binding contract was formed due to mistake. Olivia has consulted you
+          as her counsel, advise her on the position of the law on the
+          transaction, and her chances of success in a legal action.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          In November 2025, April Logistics, a specialist event management
+          company, entered into a written contract with Daily Events Plc to
+          organise and manage a large corporate conference scheduled for
+          15 June 2026 at a prestigious venue in Yenagoa. The contract price
+          was N75,000,000.00 payable in three instalments. April Logistics
+          would handle all logistics, catering, speaker bookings, and technical
+          setup. The contract contained a force majeure clause covering
+          "acts of God, government restrictions, pandemics, or other events
+          beyond the reasonable control of the parties." Time was expressly
+          stated to be of the essence for the delivery of the finalised
+          programme by 1 May 2026. By March 2026, April Logistics had received
+          the first two instalments (N25,000,000.00) and had incurred
+          significant expenses booking venues, caterers, and celebrity
+          speakers. In early April 2026, a new government regulation was
+          introduced due to a public health emergency, imposing strict limits
+          on indoor gatherings of more than 100 people. The conference venue
+          notified both parties that it could no longer host the event on the
+          agreed date. On 20 April 2026, Daily Events Plc sent a letter to
+          April Logistics stating: "Due to the government restrictions, we
+          consider the contract frustrated and cancelled. We will not be
+          paying the final instalment." April Logistics responded that it was
+          still willing and able to reorganise the event as a hybrid
+          (in-person and virtual) conference at additional cost and demanded
+          the balance of the contract price. Daily Events refused, arguing
+          the contract was discharged by frustration or, alternatively, by
+          their acceptance of April Logistics' alleged repudiatory breach
+          (delay in finalising the programme). April Logistics has now brought
+          proceedings claiming the full contract price or, alternatively,
+          damages for breach and reimbursement of expenses incurred. Discuss
+          the position of the law as it relates to the facts of this case.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          'At Common Law the only remedy available for the Breach of Contract
+          is the award of damages and in certain situation the award of damages
+          is considered inadequate to complete the justice in the case.
+          However, the court of Equity has always stepped in to award
+          equitable remedies that help to complete the circle of justice. In
+          the light of the above, mention and explain the equitable remedies
+          you have studied and discuss the specific situations where the court
+          will grant each of the remedies.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NIGERIAN LEGAL SYSTEM II 2025/2026 -->
+<div id="nigerianlegalsystem2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>NIGERIAN LEGAL SYSTEM II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER FOUR (4) QUESTIONS ONLY.
+        ALL QUESTIONS CARRY EQUAL MARKS (17.5).
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Procedural mechanisms in the Nigerian Legal System are indeed
+          semi-regimental, to the extent that whenever an inappropriate
+          procedure is used in instituting action in court, same shall be
+          pulled down vide preliminary objection. Therefore, practitioners
+          must be extra careful for the mode of procedure to be adopted in
+          the initiation of civil causes of action. Many causes of action
+          have suffered this ugly fate at courts of trial. In civil
+          procedural system, there are some well-known procedural methods,
+          each for some specific breaches or infringements. Dr. Ebhagha
+          Ogudaoni, is a native of Obogwu Olobo, which legal system is quite
+          distinct from that of Nigeria. Sincerely explain to him the
+          various modes of commencement of action in civil jurisdictions
+          in Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Mr. Emmanuel Okoro, a 24-year-old unemployed artisan, was arrested
+          and charged before the High Court of Imo State for armed robbery.
+          Having no financial means to engage a lawyer, he informed the court
+          that he could not afford legal representation. The trial judge,
+          however, proceeded with the trial without ensuring that legal
+          representation was provided for him. During the proceedings,
+          Mr. Okoro was unable to cross-examine prosecution witnesses
+          effectively, failed to object to the admission of several
+          documents, and eventually made damaging statements during his
+          defence. He was convicted and sentenced to 15 year imprisonment.
+          While in prison, a non-governmental organisation contacted the
+          Legal Aid Council of Nigeria, which assigned a legal practitioner
+          to represent him on appeal. The lawyer discovered several
+          constitutional and procedural irregularities, including the denial
+          of legal representation, violation of the accused's right to fair
+          hearing and prolonged detention before trial. The Court of Appeal
+          eventually allowed the appeal and ordered a retrial before another
+          judge.
+        </p>
+
+        <p>
+          <strong>(a)</strong> Explain the concept and philosophy of legal aid
+          in Nigeria.
+        </p>
+
+        <p>
+          <strong>(b)</strong> Examine the legal framework of the Legal Aid
+          Council of Nigeria.
+        </p>
+
+        <p>
+          <strong>(c)</strong> Identify and discuss the functions and
+          challenges of Legal Aid Council of Nigeria.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Courts under the Nigerian Legal System are hierarchically arranged
+          in order of status or stratifications. The Supreme Court is in the
+          echelon, penultimate to it, is the Court of Appeal, and down the
+          strata are the High Courts. There are so many courts in Nigeria
+          with coordinate jurisdictions with the High Court, appeals from
+          these courts lie to the Court of Appeal of Nigeria for rehearing.
+          Carefully, itemize all the courts of parallel jurisdictions with
+          the High Court and the provisions of the enabling law establishing
+          them.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          Jibril Ahmed is a citizen of the ancient kingdom of Cush in North
+          Africa, contemporarily known and described as the Republic of
+          Ethiopia. It is the only African nation without colonial hegemony,
+          and by virtue whereof, have no inherited legal system from the
+          western world. He sojourns in Nigeria and have acquired permanent
+          resident permit. He chooses to reside in Eballa Community, a rural
+          settlement in Amureni ethnic nationality, wherein cultural
+          practices are revered and honoured with high esteem. Through hard
+          work and divine providence, Jibril Ahmed became so rich and
+          influential. Due to his affluence, he had acquired vast expanse
+          of land in Eballa, planted beautiful garden for resort centre for
+          relaxation, magnificent estates to his glory, and have four (4)
+          indigenous women to himself. Unfortunately to him, one of the
+          women named Agbalokpon died intestate with numerous valuables.
+          Jibril Ahmed had not perfected his marriage with Agbalokpon, he
+          has not even documented any of his landed property. As a foreigner,
+          he is so perplexed in all circumstances surrounding him, he has
+          met you, give him advice on how to assuage his worries in an alien
+          land with customary law.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Judicial officers once appointed enjoy tenure of office for life.
+          They are everlastingly entitled to all the paraphernalia and
+          benefits unto death. Howbeit, a judicial officer could be removed
+          and disciplined in certain circumstances. Concisely enumerate with
+          brief explanations of some measures wherein the performance of a
+          judicial officer on the bench might be checked.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          One of the regulatory bodies in the field of Legal Education in
+          Nigeria is Body of Benchers. It is a body with legal practitioners
+          and judicial officers of the highest regard and magnitude in the
+          legal profession. The composition of its members are men with
+          profound intellectual productivity in the profession of at least
+          fifteen (15) years of post-call. It prescribes professional fees
+          to be paid by all legal practitioners. The seventy-five percent
+          attendance criteria, and three dinner sessions embarked upon by
+          all aspirants to the Nigerian bar are some of their
+          recommendations. Finally, every legal practitioner in Nigeria is
+          admitted into the profession by the issuance of its Call to Bar
+          Certificate. The configuration of the body is all encompassing
+          and enormous in terms of numbers, embracing all facets of the
+          legal profession. Mr. Okeleghel Enur just arrived the shores of
+          Nigeria from Obhiny Abal, a sovereign state from the enclave of
+          Oceania. He has devoted interest to acquaint himself with the
+          composition of this all-important body. Kindly, catalogue the
+          membership of the body to him.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONSTITUTIONAL LAW II 2025/2026 -->
+<div id="constitutionallaw2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>CONSTITUTIONAL LAW II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER FOUR (4) QUESTIONS ONLY.
+        ALL QUESTIONS CARRY EQUAL MARKS (17.5).
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Fundamental objectives and directive principles of State policy in
+          Chapter II of the Constitution of the Federal Republic of Nigeria,
+          1999 (as amended) are described as positive rights while the
+          fundamental rights in Chapter IV of the Constitution are described
+          as negative rights. Discuss the conceptual and justiciability of
+          the said rights with the aid of relevant statutory and case law
+          authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Chief Mallam Independence was an agitator of the Niger Delta region
+          and led a team of armed agitators against the Federal Republic of
+          Nigeria. He was overpowered by the superior fire power of the
+          Nigerian Army and was subsequently arrested. He was charged to
+          court, tried and convicted after which he was sentenced to life
+          imprisonment. After being in prison for 15 years, the President
+          granted him an unconditional pardon. Chief Mallam Independence
+          thereafter joined the All-Masses Party (AMP) and became its
+          flagbearer to contest the central senatorial district seat of the
+          Senate. He won the general elections having scored majority of
+          lawful votes against his opponent in the election. His opponent
+          Hon. Bob Drake has challenged the election on the basis that Chief
+          Mallam Independence being an ex-convict is not qualified to contest
+          the general election. Advise the parties on the scope of the
+          President's power to grant prerogative of mercy.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Dr. Rollas was recently elected and sworn-in as the Governor of
+          Valley State. Shortly after the swearing-in, the Governor has
+          serious disagreements with the House of Assembly over the
+          presentation of appropriation bill of the State. The crisis led
+          to the total shut down of legislative activities in the House of
+          Assembly complex. The members of the House of Assembly decided to
+          sit in another place within the State in a bid to impeach the
+          Governor, which could not pull through as gun men interrupted the
+          proceedings and shot sporadically. The crisis between the parties
+          affected governmental activities to the point that the President
+          declared a state of emergency in Valley State and thereafter
+          suspended the Governor and his deputy as well as the House of
+          Assembly. The Governor being aggrieved with the proclamation of
+          the President has approached the court to challenge the power of
+          the President to declare a state of emergency as well as the
+          suspension of democratically elected institutions of the State.
+          Assess the propriety of the President's actions.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          The Governor of Neverland State appointed his wife who is a legal
+          practitioner as a High Court Judge of the State. Hon. Justice Nok
+          having served as Chief Judge of the State and having reached his
+          retirement age has duly retired. The Governor thereafter appointed
+          his childhood friend who as at the time was the President of the
+          Customary Court of Appeal of the State - Justice Okoko - as Acting
+          Chief Judge, while ignoring the next most senior High Court Judge.
+          The National Judicial Council in order to fill the vacant position
+          of the Chief Judge nominated 2 persons to the Governor to be
+          appointed as Chief Judge of whom his friend's name (Justice Okoko)
+          was not included. The Governor, not pleased with the nomination
+          made by the NJC proceeded to dismiss the 2 judges nominated from
+          the service of the judiciary and appointed his childhood friend who
+          was not nominated as the substantive Chief Judge of Neverland
+          State. As a student of constitutional law explain the propriety of
+          the Governor's actions.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Mr. Tunde Johnson is 29 years old and wishes to contest for the
+          office of Chairman of Eti-Osa Local Government Area in Lagos State.
+          The following facts are disclosed during the screening exercise:
+        </p>
+
+        <p>
+          <strong>(a)</strong> He is a Nigerian citizen by birth.
+        </p>
+
+        <p>
+          <strong>(b)</strong> He possesses the Senior Secondary School
+          Certificate (SSCE).
+        </p>
+
+        <p>
+          <strong>(c)</strong> He is a registered member of a political party
+          and has been nominated by the party.
+        </p>
+
+        <p>
+          <strong>(d)</strong> He is a serving officer in the Lagos State
+          Ministry of Health and has not resigned from his employment.
+        </p>
+
+        <p>
+          <strong>(e)</strong> Two years ago, he was convicted by a High Court
+          for an offence involving dishonesty.
+        </p>
+
+        <p>
+          His nomination is challenged before the High Court on the ground
+          that he is not qualified to contest. Advise the Court on whether
+          Mr. Johnson is qualified to contest the office of Chairman of
+          Eti-Osa Local Government Area.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          Write short notes on any 3 of the following:
+        </p>
+
+        <p>
+          <strong>•</strong> Habeas corpus
+        </p>
+
+        <p>
+          <strong>•</strong> Mandamus
+        </p>
+
+        <p>
+          <strong>•</strong> Certiorari
+        </p>
+
+        <p>
+          <strong>•</strong> Prohibition
+        </p>
+
+        <p>
+          <strong>•</strong> Injunction
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PRESS AND MEDIA LAW II 2025/2026 -->
+<div id="pressandmedialaw2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>PRESS AND MEDIA LAW II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER QUESTION 1, AND ANY OTHER THREE QUESTIONS.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1. (25 Marks)</h3>
+
+        <p>
+          Sarah, an investigative journalist, secretly recorded a private
+          conversation between a State Commissioner and his spouse inside
+          their residence. Although the conversation revealed no evidence
+          of corruption, abuse of office, or any other criminal conduct,
+          Sarah nevertheless published the recording on her newspaper's
+          reportage of February 24, 2026 on the ground that the public would
+          be interested in the contents. Advise the parties on their
+          respective rights and liabilities under the law in Nigeria,
+          making reference to the relevant constitutional provisions,
+          statutes, and judicial authorities.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2. (15 Marks)</h3>
+
+        <p>
+          "Information exempted from disclosure may nevertheless be released
+          where disclosure is justified by public interest." Critically
+          examine this statement with reference to the relevant provisions
+          of Nigerian law.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3. (15 Marks)</h3>
+
+        <p>
+          The rapid development of information technology has significantly
+          transformed the concept of privacy. Examine the legal framework
+          governing digital privacy in Nigeria, with particular reference to
+          the provisions of the Nigeria Data Protection Act, 2023.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4. (15 Marks)</h3>
+
+        <p>
+          Identify and explain the statutory terms used under the Nigeria
+          Data Protection Act, 2023 for persons or entities responsible for
+          determining the purposes and means of processing personal data and
+          those who process personal data on behalf of others.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5. (15 Marks)</h3>
+
+        <p>
+          Distinguish between public interest and public curiosity in media
+          law. Illustrating your answer with relevant legal principles and
+          practical examples.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6. (15 Marks)</h3>
+
+        <p>
+          Explain the objectives of the Official Secrets Act in Nigeria.
+          Discuss the categories of information protected under the Act and
+          the rationale for protecting such classified and confidential
+          information.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOMARY LAW II 2025/2026 -->
+<div id="customarylaw2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>CUSTOMARY LAW II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER FOUR (4) QUESTIONS ONLY.
+        ALL QUESTIONS CARRY EQUAL MARKS (17.5).
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          Janet is a peasant farmer without financial means to access modern
+          agro feeds for her intended expansion project. However, Janet has a
+          vast expanse of land bequeathed to her by her late father. Two years
+          ago, Janet had approached Chief Gotex for a loan which was granted
+          in the sum of N500,000.00 only upon a pledge to repay in 24 months.
+          Janet used one hectare of her land as the security for the loan with
+          an undertaking to redeem same. 26 months after, Janet has failed to
+          redeem the pledge and Chief Gotex has threatened to take ownership
+          of the land.
+
+          Janet has consulted your services as a human rights lawyer. Advise
+          Janet on her rights and the limitations of Chief Gotex.
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          Customary land law regulates ownership, possession, use, transfer
+          and inheritance of land under native law and custom. Briefly explain
+          the concept of landholding and the modes of acquisition of title
+          under customary land law.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Ebiere and Ebiowei had been married under native law and custom for
+          the past two years. The marriage now suffers from a lack of
+          affection and commitment. The parties have defied all efforts at
+          settlement and are determined to end the marriage on the ground of
+          irreconcilable differences. They have consulted you as a lawyer.
+          Advise the parties on the options they can explore in dissolving
+          the marriage.
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          With the aid of judicial and statutory authorities, briefly discuss
+          the extant position on the conflict between custom and statute as it
+          relates to the right against discrimination, using customary
+          inheritance as a case study.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          Mr. Adam was the Head Chief of Otuoke Township, who until his death
+          intestate lived in a property by virtue of the office of Head Chief.
+          Mr. Adam also administered the land attached to the office on behalf
+          of the community. Upon his death, his son, John has held himself out
+          as the owner of the land attached to his late father's office and
+          the position held by the father without regard for the custom
+          practiced in the village. As a law student with knowledge of
+          customary law, please advise Mr. John Adam on the customary status
+          of the land and his chances of inheritance of the property.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          It has been argued that a customary tenancy can never metamorphose
+          into ownership of land without actual transfer of title by the owner
+          or landlord. Do you agree?
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TAXATION LAW II -->
+<div id="taxationlaw2" class="page">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('200second')">← Back</button>
+    <h2 class="section-title">TAXATION LAW II</h2>
+    <p class="session">2025/2026 ACADEMIC SESSION (200 LEVEL)</p>
+    <p class="session">SECOND SEMESTER QUESTIONS</p>
+    <h3>QUESTIONS COMING SOON</h3>
+  </div>
+</div>
+
+<!-- COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES II 2025/2026 -->
+<div id="computerliteracy2" class="page">
+  <div class="container">
+
+    <button class="back-btn" onclick="showPage('200second')">
+      ← Back
+    </button>
+
+    <div class="question-box">
+
+      <h2>COMPUTER LITERACY AND APPLICATION TO LEGAL STUDIES II</h2>
+
+      <p class="session">
+        2025/2026 ACADEMIC SESSION (200 LEVEL)
+      </p>
+
+      <p class="session">
+        SECOND SEMESTER QUESTIONS
+      </p>
+
+      <h3>
+        ANSWER QUESTION 1 AND ANY THREE OTHER QUESTIONS ONLY.
+      </h3>
+
+      <!-- QUESTION 1 -->
+      <div class="question">
+        <h3>1.</h3>
+
+        <p>
+          <strong>A.</strong> Outline ten (10) job specializations for
+          computing professionals.
+        </p>
+
+        <p>
+          <strong>B.</strong> In a tabular form, outline four (4) differences
+          between data and information.
+        </p>
+
+        <p>
+          <strong>C.</strong> State ten (10) areas of computer science
+          discipline.
+        </p>
+
+        <p>
+          <strong>D.</strong> Outline four (4) differences between primary
+          and secondary storage devices.
+        </p>
+
+        <p>
+          <strong>E.</strong> What is an application software?
+        </p>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="question">
+        <h3>2.</h3>
+
+        <p>
+          <strong>A.</strong> What are computer peripherals?
+        </p>
+
+        <p>
+          <strong>B.</strong> State any three (3) instances of output devices.
+        </p>
+
+        <p>
+          <strong>C.</strong> Outline five (5) benefits of personal computer
+          to the society.
+        </p>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="question">
+        <h3>3.</h3>
+
+        <p>
+          Write short notes on the following:
+        </p>
+
+        <p>
+          <strong>•</strong> Abacus
+        </p>
+
+        <p>
+          <strong>•</strong> Napiers Bone
+        </p>
+
+        <p>
+          <strong>•</strong> Computer
+        </p>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="question">
+        <h3>4.</h3>
+
+        <p>
+          <strong>A.</strong> Mention any six (6) instances of input devices.
+        </p>
+
+        <p>
+          <strong>B.</strong> In a tabular form, outline three (3) pros and
+          cons of the main memory.
+        </p>
+
+        <p>
+          <strong>C.</strong> Define system software.
+        </p>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="question">
+        <h3>5.</h3>
+
+        <p>
+          <strong>A.</strong> In your own words, what is a computer memory?
+        </p>
+
+        <p>
+          <strong>B.</strong> What is the difference between ALU and CU?
+        </p>
+
+        <p>
+          <strong>C.</strong> Explicitly distinguish between RAM and ROM.
+        </p>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="question">
+        <h3>6.</h3>
+
+        <p>
+          <strong>A.</strong> Outline three (3) instances of secondary storage
+          devices.
+        </p>
+
+        <p>
+          <strong>B.</strong> State the three types of memory you have studied.
+        </p>
+
+        <p>
+          <strong>C.</strong> Mention three (3) differences between SRAM and
+          DRAM.
+        </p>
+
+        <p>
+          <strong>D.</strong> Write a short note about the internet.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+  <!-- 300 LEVEL -->
+  <div id="300level" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('home')">← Back</button>
+      <h2 class="section-title">300 LEVEL</h2>
+      <button class="semester-btn">First Semester</button>
+      <button class="semester-btn">Second Semester</button>
+    </div>
+  </div>
+
+
+  <!-- 400 LEVEL -->
+  <div id="400level" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('home')">← Back</button>
+      <h2 class="section-title">400 LEVEL</h2>
+      <button class="semester-btn">First Semester</button>
+      <button class="semester-btn">Second Semester</button>
+    </div>
+  </div>
+
+
+  <!-- 500 LEVEL -->
+  <div id="500level" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="showPage('home')">← Back</button>
+      <h2 class="section-title">500 LEVEL</h2>
+      <button class="semester-btn">First Semester</button>
+      <button class="semester-btn">Second Semester</button>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 FUO Law Past Questions
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(function(page) {
+        page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
 </body>
 </html>
